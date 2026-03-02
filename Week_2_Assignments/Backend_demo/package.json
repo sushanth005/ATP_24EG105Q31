@@ -1,0 +1,16 @@
+{
+  "name": "ass_backend1",
+  "version": "1.0.0",
+  "description": "1. Generate package.json file\r     npm init -y\r     ### Automatically generates package.json file\r 2. Create HTTP Server\r     - Install express module\r         npm install express\r         ### it'll download node js to our appliccation\r     - Import express module\r 3.\r ### testing using REST client extension\r ### we create a req.http to send the requests as a client to the server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
