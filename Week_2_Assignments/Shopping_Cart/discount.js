@@ -3,6 +3,7 @@ const coupons = {
   FLAT500: 500
 };
 
+//Function to apply discount
 export function applyDiscount(total, couponCode) {
 
   if (!couponCode) return total;
