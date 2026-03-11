@@ -5,7 +5,9 @@ const app = exp();
 //Express application internally contains http server and more things in it
 
 //use body body parser middleware
-app.use(exp.json());
+app.use(exp.json(console.log("middleware executed")));
+app.use(exp.json(console.log("middleware2 executed")));
+app.use(exp.json(console.log("middleware3 executed")));
 
 //set a port number
 const port = 3000;

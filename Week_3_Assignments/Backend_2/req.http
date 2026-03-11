@@ -1,0 +1,77 @@
+### Read all users(request to protected route)
+GET http://localhost:3000/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1c2hhbnRoMTIwOEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4Nzc1OTksImV4cCI6MTc3Mjg4MTE5OX0.Ue-v1chwocbDBElE9-gowQwKgFfOwJeoBII73fsJVF0; Path=/; HttpOnly; SameSite=Lax
+
+### Read a user by id
+GET http://localhost:3000/user-api/users/69abf7034670635468d31fd7
+
+### Create new user
+POST http://localhost:3000/user-api/users
+Content-Type:  application/json
+
+{
+    "username":"sushanth",
+    "password":"bandari",
+    "email":"sushanth1208@gmail.com",
+    "age": 19
+}
+
+###user login
+POST http://localhost:3000/user-api/users/auth
+Content-Type: application/json
+
+{
+    "email":"sushanth1208@gmail.com",
+    "password":"bandari"
+}
+
+### Update user
+PUT http://localhost:3000/user-api/users/69aa8a5137bfacb2836de611
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1c2hhbnRoMTIwOEBnbWFpbC5jb20iLCJpYXQiOjE3NzI4NzUyNzQsImV4cCI6MTc3Mjk2MTY3NH0.auhl3q-TMhbmY9vitx0Ry78_h2Rui3rjtXUm1JkKtdQ; Path=/; HttpOnly; SameSite=Lax
+
+{
+    "username":"Sushanth",
+    "password":"bunny",
+    "email":"sushanth1208@gmail.com",
+    "age": 18
+}
+
+###Delete by ID
+DELETE http://localhost:3000/user-api/users/69abe282a9a9280e1b401db8
+
+
+
+###Products
+
+
+### Read all products
+GET http://localhost:3000/product-api/products
+
+### Read a product by brand
+GET http://localhost:3000/product-api/products/lenovo
+
+### Create new product
+POST http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":121,
+    "productName":"Laptop",
+    "price":49999 ,
+    "brand":"lenovo"
+}
+
+### update product
+PUT http://localhost:3000/product-api/products/121
+Content-Type: application/json
+
+{
+    "productId":101,
+    "productName":"Ipad",
+    "price":40000,
+    "brand":"Apple"
+}
+
+###
+DELETE http://localhost:3000/product-api/products/121
