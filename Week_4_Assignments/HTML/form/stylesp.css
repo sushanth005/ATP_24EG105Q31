@@ -1,0 +1,12 @@
+
+body{
+    height: 2000px;
+    border: 2px solid black;
+}
+div{
+    margin-top: 600px;
+    margin-left: 1400px;
+}
+img{    
+    position:fixed;
+}

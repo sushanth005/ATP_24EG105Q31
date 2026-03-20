@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    border: 0;
+    
+}
+.Card{
+    margin: auto;
+    width: 500px;
+    box-shadow: 2px 2px 30px rgb(25, 190, 245);
+    margin-top: 150px;
+    text-align: center;
+    border-radius: 30px;
+}
+img{
+    border-radius: 30px;
+    margin-top: 30px;
+}
+button{
+    margin-bottom: 20px;
+    background-color: rgb(119, 201, 255);
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border-radius: 20px;
+}
+h1{
+    color: rgb(38, 191, 252);
+}
+p{
+    text-align: center;
+}
+.Card:hover{
+    color: rgb(2, 38, 65);
+}

@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+}
+.profilebox{
+    text-align: center;
+    border: 2px solid beige;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    margin-top: 80px;
+    background-color: beige;
+    box-shadow: 2px 2px 20px orange;
+    border-radius: 20px;
+    position: relative ;
+}
+.linkedin{
+    position: absolute;
+    top: -30px;
+    left: 80%;
+}
+.github{
+    position: absolute;
+    bottom: -30px;
+    left: 45%;
+}
+.linkedin img,
+.github img{
+    width: 60px;
+    border-radius: 50%;
+}

@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.home{
+    background-color: purple;
+    text-align: center;
+}
+a{
+    text-align: center;
+    color: aliceblue;
+}
+ul{
+    font-size: 40px;
+    margin-top: 500px;
+    margin: auto;
+}
+.himg1,.himg2,.himg3{
+    border: 2px solid white ;
+    border-radius: 50px;
+    box-shadow: 2px 2px 30px white;
+}
+.images{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+p{
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+
+}
+h1{
+    font-size: 100px;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    text-align: center;
+    color: white;
+}
+body{
+    background-color: chocolate;
+}
