@@ -1,0 +1,21 @@
+img{
+    display: block;
+    margin: auto;
+}
+h1{
+    text-align: center;
+}
+h2{
+    color: brown;
+}
+body{
+    padding: 200px;
+    background-color: beige;
+}
+p{
+    font-weight: bold;
+    padding: 0px;
+}
+div{
+
+}
