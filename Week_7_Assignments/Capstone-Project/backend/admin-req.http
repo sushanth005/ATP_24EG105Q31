@@ -1,0 +1,12 @@
+### Admin Login
+POST http://localhost:2006/auth/login
+Content-Type: application/json
+
+{
+    "email":"admin1@gmail.com",
+    "password":"admin1"
+}
+
+### 
+
+###
