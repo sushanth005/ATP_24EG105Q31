@@ -55,7 +55,7 @@ function Register() {
     try {
       //start loading
       setLoading(true);
-      let res=await axios.post("http://localhost:2006/auth/users",formData,{withCredentials:true})
+      let res=await axios.post("https://atp-24eg105q31.onrender.com",formData,{withCredentials:true})
       if(res.status===201)
       {
         //navigate to Login
