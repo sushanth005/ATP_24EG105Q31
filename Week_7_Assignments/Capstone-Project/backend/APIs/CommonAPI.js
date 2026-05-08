@@ -4,7 +4,7 @@ import cloudinary from "../config/cloudinary.js";
 import { UserModel } from "../models/UserModel.js";
 import { hash, compare } from "bcryptjs";
 import { config } from "dotenv";
-import { verifyToken } from "../middlewares/VerifyToken.js";
+import { VerifyToken } from "../middlewares/VerifyToken.js";
 import { upload } from "../config/multer.js";
 import { uploadToCloudinary } from "../config/cloudinaryUpload.js";
 
@@ -171,7 +171,7 @@ commonApp.get("/logout",(req,res)=>{
 })
 
 //Page Refresh
-commonApp.get("/check-auth",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
+commonApp.get("/check-auth",VerifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
     res.status(200).json({
         message:"authenticated",
         payload:req.user
@@ -179,7 +179,7 @@ commonApp.get("/check-auth",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=
 })
 
 //Change Password
-commonApp.put("/password",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
+commonApp.put("/password",VerifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
     //get current password and new password
     const {currentPassword,newPassword}=req.body;
 
