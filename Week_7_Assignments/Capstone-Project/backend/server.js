@@ -45,7 +45,9 @@ const connectDB=async()=>{
         console.log("DB Server connected");
         //asssign port
         const PORT = process.env.PORT || 2006;
-        app.listen(port,()=>console.log(`server listening on ${port}...`));
+        app.listen(PORT, () => 
+          console.log(`server listening on ${PORT}...`)
+        );
     }
     catch(err)
     {
