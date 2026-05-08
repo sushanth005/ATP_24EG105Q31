@@ -1,4 +1,3 @@
-
 import exp from "express";
 import { verifyToken } from "../middlewares/VerifyToken.js";
 import { UserModel } from "../models/UserModel.js";
