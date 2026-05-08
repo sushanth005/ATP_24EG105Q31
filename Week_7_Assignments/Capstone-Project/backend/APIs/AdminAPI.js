@@ -1,6 +1,4 @@
-# adminAPI.js
 
-```js
 import exp from "express";
 import { verifyToken } from "../middlewares/VerifyToken.js";
 import { UserModel } from "../models/UserModel.js";
@@ -221,14 +219,4 @@ export const verifyToken = (allowedRoles = []) => {
     }
   };
 };
-```
 
----
-
-# Required Imports in server.js
-
-```js
-import { adminApp } from "./APIs/AdminAPI.js";
-
-app.use("/admin-api", adminApp);
-```
