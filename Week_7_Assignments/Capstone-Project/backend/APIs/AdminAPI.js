@@ -61,7 +61,7 @@ adminApp.patch(
           isUserActive: false,
         },
         { new: true }
-      );
+      ).select("-password");
 
       if (!updatedUser) {
         return res.status(404).json({
@@ -95,7 +95,7 @@ adminApp.patch(
           isUserActive: true,
         },
         { new: true }
-      );
+      ).select("-password");
 
       if (!updatedUser) {
         return res.status(404).json({
@@ -123,7 +123,9 @@ adminApp.delete(
     try {
       const { articleId } = req.params;
 
-      const deletedArticle = await ArticleModel.findByIdAndDelete(articleId);
+      const deletedArticle = await ArticleModel.findByIdAndDelete(
+        articleId
+      );
 
       if (!deletedArticle) {
         return res.status(404).json({
@@ -150,10 +152,19 @@ adminApp.get(
   async (req, res, next) => {
     try {
       const totalUsers = await UserModel.countDocuments();
-      const totalArticles = await ArticleModel.countDocuments();
-      const activeUsers = await UserModel.countDocuments({
-        isUserActive: true,
-      });
+
+      const totalArticles =
+        await ArticleModel.countDocuments();
+
+      const activeUsers =
+        await UserModel.countDocuments({
+          isUserActive: true,
+        });
+
+      const blockedUsers =
+        await UserModel.countDocuments({
+          isUserActive: false,
+        });
 
       res.status(200).json({
         message: "Dashboard stats fetched successfully",
@@ -161,6 +172,7 @@ adminApp.get(
           totalUsers,
           totalArticles,
           activeUsers,
+          blockedUsers,
         },
       });
     } catch (err) {
@@ -177,45 +189,3 @@ adminApp.use((req, res) => {
     message: `Invalid Admin API Path: ${req.url}`,
   });
 });
-```
-
----
-
-# Required VerifyToken Middleware Example
-
-```js
-import jwt from "jsonwebtoken";
-
-export const verifyToken = (allowedRoles = []) => {
-  return (req, res, next) => {
-    try {
-      const token = req.cookies.token;
-
-      if (!token) {
-        return res.status(401).json({
-          message: "Token missing",
-        });
-      }
-
-      const decodedToken = jwt.verify(
-        token,
-        process.env.SECRET_KEY
-      );
-
-      if (
-        allowedRoles.length > 0 &&
-        !allowedRoles.includes(decodedToken.role)
-      ) {
-        return res.status(403).json({
-          message: "Unauthorized access",
-        });
-      }
-
-      req.user = decodedToken;
-      next();
-    } catch (err) {
-      next(err);
-    }
-  };
-};
-
