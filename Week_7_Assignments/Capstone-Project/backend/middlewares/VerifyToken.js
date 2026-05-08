@@ -4,7 +4,7 @@ const {verify}=jwt;
 
 config();
 
-export const verifyToken=(...allowedRoles)=>{
+export const VerifyToken=(...allowedRoles)=>{
     return (req,res,next)=>{
     const token=req.cookies?.token;
     //if req from unauthorized user
