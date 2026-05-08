@@ -1,12 +1,12 @@
 import exp from 'express';
 import {UserModel} from '../models/UserModel.js';
 import {ArticleModel} from '../models/ArticleModel.js';
-import { verifyToken } from '../middlewares/VerifyToken.js';
+import { VerifyToken } from '../middlewares/VerifyToken.js';
 
 export const authorApp=exp.Router();
 
 //Write Article (protected route)
-authorApp.post("/articles",verifyToken("AUTHOR"),async(req,res)=>{
+authorApp.post("/articles",VerifyToken("AUTHOR"),async(req,res)=>{
     //get articleObj from client
     const articleObj=req.body;
 
@@ -37,7 +37,7 @@ authorApp.post("/articles",verifyToken("AUTHOR"),async(req,res)=>{
 })
 
 //Read own Articles
-authorApp.get("/articles",verifyToken("AUTHOR"),async(req,res)=>{
+authorApp.get("/articles",VerifyToken("AUTHOR"),async(req,res)=>{
   //get email from decoded token
   const authorIdOfToken=req.user?.id;
   //get articles by author id
@@ -46,7 +46,7 @@ authorApp.get("/articles",verifyToken("AUTHOR"),async(req,res)=>{
 })
 
 //Update an Article
-authorApp.put("/article",verifyToken("AUTHOR"),async(req,res)=>{
+authorApp.put("/article",VerifyToken("AUTHOR"),async(req,res)=>{
     /*get articleObj from req
     const {articleId,...articleObj}=req.body;
     const oriArticle=req.body;
@@ -75,7 +75,7 @@ authorApp.put("/article",verifyToken("AUTHOR"),async(req,res)=>{
 
 
 //Delete or Replace an article temperoraily(soft delete)
-authorApp.patch("/article",verifyToken("AUTHOR"),async(req,res)=>{
+authorApp.patch("/article",VerifyToken("AUTHOR"),async(req,res)=>{
     //get author if from decoded token
     const authorIdOfToken=req.user?.id;
     //get modified article from client
