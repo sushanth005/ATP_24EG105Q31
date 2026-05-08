@@ -19,7 +19,7 @@ app.use(cors({
     "https://blog-app-beryl-nu.vercel.app"
   ],
   credentials: true
-}));,
+}));
 );
 
 //body parser middleware
@@ -44,7 +44,7 @@ const connectDB=async()=>{
         await connect(process.env.DB_URL);
         console.log("DB Server connected");
         //asssign port
-        const port=process.env.PORT || 5000
+        const PORT = process.env.PORT || 2006;
         app.listen(port,()=>console.log(`server listening on ${port}...`));
     }
     catch(err)
