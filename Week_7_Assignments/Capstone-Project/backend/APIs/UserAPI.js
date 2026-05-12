@@ -32,7 +32,7 @@ userApp.get(
 // Add comment to an article
 userApp.put(
   "/article",
-  VerifyToken("USER"),
+  verifyToken("USER"),
   async (req, res) => {
     try {
       // get body from request
