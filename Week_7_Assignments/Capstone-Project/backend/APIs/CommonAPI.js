@@ -4,7 +4,7 @@ import cloudinary from "../config/cloudinary.js";
 import { UserModel } from "../models/UserModel.js";
 import { hash, compare } from "bcryptjs";
 import { config } from "dotenv";
-import { VerifyToken } from "../middlewares/VerifyToken.js";
+import { verifyToken } from "../middlewares/VerifyToken.js";
 import { upload } from "../config/multer.js";
 import { uploadToCloudinary } from "../config/cloudinaryUpload.js";
 
