@@ -1,10 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
-import { useAuth } from "../store/authStore";
-
+import api from "../api/axiosInstance.js";
 import {
   formCard,
   formTitle,
@@ -14,7 +11,7 @@ import {
   submitBtn,
   errorClass,
   articlePageWrapper,
-} from "../styles/common";
+} from "../styles/common.js";
 
 function EditArticle() {
   const location = useLocation();
@@ -22,9 +19,7 @@ function EditArticle() {
   const { id } = useParams();
 
   const article = location.state;
-    const [loading, setLoading] = useState(false);
-    const currentUser = useAuth((state) => state.currentUser);
-  
+
   const {
     register,
     handleSubmit,
@@ -42,27 +37,17 @@ function EditArticle() {
   }, [article]);
 
   const updateArticle = async (modifiedArticle) => {
-    console.log(modifiedArticle);
-    
-    modifiedArticle.articleId=article._id;
-    try {
   
-    //set loading to true
-    setLoading(true);
-    //Make PUT Req 
-    let res=await axios.put("http://localhost:2006/author-api/article",modifiedArticle,{withCredentials: true}) 
-
-    //if modified
-    if(res.status===200)
-    {
-      navigate(`/article/${article._id}`,{state:res.data.payload})
-    }
-   
-    } catch (err) {
-      //toast.error(err.response?.data?.error || "Failed to publish article");
-    } finally {
-      setLoading(false);
-    }
+    //add articleId to modified article
+    modifiedArticle.articleId=article._id;
+    //make PUT req to update article
+    let res=await api.put("/author-api/article",
+      modifiedArticle,
+      {withCredentials:true})
+    //naviagte to articleById component
+   if(res.status===200){
+    navigate(`/article/${article._id}`,{state:res.data.payload})
+   }
   };
 
   return (
