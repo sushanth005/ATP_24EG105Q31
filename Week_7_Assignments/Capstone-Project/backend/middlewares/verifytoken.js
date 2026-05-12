@@ -3,7 +3,7 @@ import { config } from "dotenv";
 
 config();
 
-export const verifyToken = (allowedRoles = []) => {
+export const verifytoken = (allowedRoles = []) => {
   return (req, res, next) => {
     try {
       // GET TOKEN
