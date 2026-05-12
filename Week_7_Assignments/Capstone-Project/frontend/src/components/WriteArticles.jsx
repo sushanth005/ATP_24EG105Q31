@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import axios from "axios";
-import {toast} from 'react-hot-toast';
+import api from "../api/axiosInstance.js";
 import { useNavigate } from "react-router";
 
 import {
@@ -13,7 +12,7 @@ import {
   submitBtn,
   errorClass,
   loadingClass,
-} from "../styles/common";
+} from "../styles/common.js";
 import { useAuth } from "../store/authStore";
 
 function WriteArticles() {
@@ -31,28 +30,20 @@ function WriteArticles() {
   //save article
   const submitArticle = async (articleObj) => {
 
-    if (!currentUser?._id) {
-        console.error("User not available");
-        return;
-    }
     //add authorId to articleObj
     articleObj.author = currentUser._id;
     try {
-
-    //set loading to true
-    setLoading(true);
-    //make POST req to save new article
-    let res=await axios.post("http://localhost:2006/author-api/articles",articleObj,{withCredentials:true})
-
-    //navigate to Authentication
-    if(res.status===201)
-    {
-        toast.success("Article Successfully Published");
+      //set loading true
+      setLoading(true);
+      //make POST req to save new article
+      let res = await api.post("/author-api/article", articleObj, { withCredentials: true });
+      //navigate to AuthorArticles
+      if (res.status === 201) {
         navigate("../articles");
-    }
-   
+        // navigate("./author-profile/articles");
+      }
     } catch (err) {
-      toast.error(err.response?.data?.error || "Failed to publish article");
+      // toast.error(err.response?.data?.error || "Failed to publish article");
     } finally {
       setLoading(false);
     }
@@ -94,10 +85,10 @@ function WriteArticles() {
             })}
           >
             <option value="">Select category</option>
-            <option value="technology">Technology</option>
-            <option value="programming">Programming</option>
-            <option value="ai">AI</option>
-            <option value="web-development">Web Development</option>
+            <option value="Technology">Technology</option>
+            <option value="Programming">Programming</option>
+            <option value="AI">AI</option>
+            <option value="Web-Development">Web Development</option>
           </select>
 
           {errors.category && <p className={errorClass}>{errors.category.message}</p>}
