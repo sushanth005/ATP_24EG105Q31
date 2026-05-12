@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
 
@@ -14,7 +13,8 @@ import {
   emptyStateClass,
   articleStatusActive,
   articleStatusDeleted,
-} from "../styles/common";
+} from "../styles/common.js";
+import api from "../api/axiosInstance.js";
 
 function AuthorArticles() {
   const navigate = useNavigate();
@@ -30,17 +30,16 @@ function AuthorArticles() {
     if (!user) return;
 
     const getAuthorArticles = async () => {
-
+      
       try {
-      //set loading to true
-       setLoading(true);
+        setLoading(true);
        //read articles of current author
-        let res= await axios.get("http://localhost:2006/author-api/articles",{withCredentials:true})
-        if(res.status===200)
-        {
-          //update articles state
-          setArticles(res.data.payload);
-        }
+       let res= await api.get("/author-api/article", {withCredentials : true})
+       if(res.status === 200)
+       {
+        setArticles(res.data.payload);
+       }
+       //update articles state
 
       } catch (err) {
         console.log(err);
