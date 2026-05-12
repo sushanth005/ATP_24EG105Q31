@@ -3,7 +3,7 @@ import { config } from "dotenv";
 
 config();
 
-export const verifytoken = (allowedRoles = []) => {
+const verifytoken = (allowedRoles = []) => {
   return (req, res, next) => {
     try {
       // GET TOKEN
@@ -48,3 +48,4 @@ export const verifytoken = (allowedRoles = []) => {
   };
 };
 
+export default verifytoken;
