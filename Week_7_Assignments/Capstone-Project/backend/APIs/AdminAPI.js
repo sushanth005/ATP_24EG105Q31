@@ -1,5 +1,5 @@
 import exp from "express";
-import { verifyToken } from "../middlewares/VerifyToken.js";
+import { verifytoken } from "../middlewares/verifytoken.js";
 import { UserModel } from "../models/UserModel.js";
 import { ArticleModel } from "../models/ArticleModel.js";
 
@@ -10,7 +10,7 @@ export const adminApp = exp.Router();
 // ==========================
 adminApp.get(
   "/users",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const users = await UserModel.find().select("-password");
@@ -30,7 +30,7 @@ adminApp.get(
 // ==========================
 adminApp.get(
   "/articles",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const articles = await ArticleModel.find();
@@ -50,7 +50,7 @@ adminApp.get(
 // ==========================
 adminApp.patch(
   "/block-user/:userId",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const { userId } = req.params;
@@ -84,7 +84,7 @@ adminApp.patch(
 // ==========================
 adminApp.patch(
   "/unblock-user/:userId",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const { userId } = req.params;
@@ -118,7 +118,7 @@ adminApp.patch(
 // ==========================
 adminApp.delete(
   "/article/:articleId",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const { articleId } = req.params;
@@ -148,7 +148,7 @@ adminApp.delete(
 // ==========================
 adminApp.get(
   "/dashboard-stats",
-  verifyToken(["ADMIN"]),
+  verifytoken(["ADMIN"]),
   async (req, res, next) => {
     try {
       const totalUsers = await UserModel.countDocuments();
