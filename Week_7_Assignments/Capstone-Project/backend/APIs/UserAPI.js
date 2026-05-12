@@ -7,7 +7,7 @@ export const userApp = exp.Router();
 // Read Articles of all authors
 userApp.get(
   "/articles",
-  VerifyToken("USER"),
+  verifyToken("USER"),
   async (req, res) => {
     try {
       // read articles
