@@ -1,5 +1,5 @@
 import exp from "express";
-import { verifyToken } from "../middlewares/VerifyToken.js";
+import { verifytoken } from "../middlewares/verifytoken.js";
 import { ArticleModel } from "../models/ArticleModel.js";
 
 export const userApp = exp.Router();
@@ -7,7 +7,7 @@ export const userApp = exp.Router();
 // Read Articles of all authors
 userApp.get(
   "/articles",
-  verifyToken("USER"),
+  verifytoken("USER"),
   async (req, res) => {
     try {
       // read articles
@@ -32,7 +32,7 @@ userApp.get(
 // Add comment to an article
 userApp.put(
   "/article",
-  verifyToken("USER"),
+  verifytoken("USER"),
   async (req, res) => {
     try {
       // get body from request
