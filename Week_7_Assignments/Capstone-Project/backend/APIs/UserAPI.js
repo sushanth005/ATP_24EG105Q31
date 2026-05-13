@@ -1,83 +1,57 @@
-import exp from "express";
-import { verifytoken } from "../middlewares/verifytoken.js";
-import { ArticleModel } from "../models/ArticleModel.js";
+import exp from 'express'
+import {ArticleModel} from '../models/ArticleModel.js'
+import {verifyToken} from '../middlewares/VerifyToken.js'
+export const userApp= exp.Router()
 
-export const userApp = exp.Router();
+//Read all the articles
+userApp.get("/articles", verifyToken("USER"), async (req, res) => {
+  try {
+    // read ALL articles (not just one)
+    const articleList = await ArticleModel.find({ isArticleActive: true });
 
-// Read Articles of all authors
-userApp.get(
-  "/articles",
-  verifytoken("USER"),
-  async (req, res) => {
-    try {
-      // read articles
-      const articlesList = await ArticleModel.find({
-        isArticleActive: true,
-      }).populate("comments.user");
-
-      // send response
-      res.status(200).json({
-        message: "All Articles",
-        payload: articlesList,
-      });
-    } catch (err) {
-      res.status(500).json({
-        message: "Error fetching articles",
-        error: err.message,
-      });
-    }
+    res.status(200).json({
+      message: "Articles fetched successfully",
+      payload: articleList,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Failed to fetch articles",
+    });
   }
-);
+})
 
-// Add comment to an article
-userApp.put(
-  "/article",
-  verifytoken("USER"),
-  async (req, res) => {
-    try {
-      // get body from request
-      const { articleId, comment } = req.body;
 
-      // check article
-      const articleDocument = await ArticleModel.findOne({
-        _id: articleId,
-        isArticleActive: true,
-      }).populate("comments.user");
+//Add comments to an article
+userApp.put("/articles", verifyToken("USER"), async (req, res) => {
+  try {
+    const { articleId, comment } = req.body;
 
-      // if article not found
-      if (!articleDocument) {
-        return res.status(404).json({
-          message: "Article not found",
-        });
-      }
+    const articleDocument = await ArticleModel.findOne({
+      _id: articleId,
+      isArticleActive: true,
+    });
 
-      // get user id from token
-      const userIdOfToken = req.user?.id;
-
-      // add comment
-      articleDocument.comments.push({
-        user: userIdOfToken,
-        comment: comment,
-      });
-
-      // save article
-      await articleDocument.save();
-
-      // get updated article
-      const updatedArticle = await ArticleModel.findById(
-        articleId
-      ).populate("comments.user");
-
-      // send response
-      res.status(200).json({
-        message: "Comment added successfully",
-        payload: updatedArticle,
-      });
-    } catch (err) {
-      res.status(500).json({
-        message: "Error adding comment",
-        error: err.message,
-      });
+    if (!articleDocument) {
+      return res.status(404).json({ message: "Article not found" });
     }
+
+    const userId = req.user?.id;
+
+    // ✅ FIXED FIELD NAME
+    articleDocument.comments.push({
+      user: userId,
+      comment: comment,
+    });
+
+    await articleDocument.save();
+
+    res.status(200).json({
+      message: "Comment added successfully", // ✅ lowercase
+      payload: articleDocument,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: "Failed to add comment",
+    });
   }
-);
+});
