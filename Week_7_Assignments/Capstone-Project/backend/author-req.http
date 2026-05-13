@@ -1,35 +1,58 @@
+### Register Author
+POST http://localhost:5000/common-api/users
+Content-Type: application/json
+
+{
+   "firstName":"Author2",
+    "lastName":"a2",
+    "email":"author2@gmail.com",
+    "password":"Author2",
+    "role":"AUTHOR",
+    "profileImageURL":"https://example.com/avatars/user.png"
+}
+
+### Author login
+POST http://localhost:5000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"author1@gmail.com",
+    "password":"Author1"
+}
+
+### Author logout
+GET  http://localhost:5000/common-api/logout
+
 ### Create new Article
-POST http://localhost:2006/author-api/article
+POST http://localhost:5000/author-api/article
 Content-Type: application/json
 
 {
-    "author":"69b38ff0a447c1dc85154a53",
-    "title":"Article-1 created by Author-2",
-    "category":"Java",
-    "content":"Latest Updates in Java"
-
+    "author":"69b3aa86840f6241309b8013",
+    "title":"Article-2 by Author1",
+    "category":"Programming",
+    "content":"C is a programming language"
 }
 
-###Read own Articles
-GET http://localhost:2006/author-api/articles
+### Read own Articles
+GET http://localhost:5000/author-api/article
 
-
-### Update a Article
-PUT  http://localhost:2006/author-api/article
+### Update article by author
+PUT http://localhost:5000/author-api/article
 Content-Type: application/json
 
 {
-    "articleId":"69b3cbb2505f86e600f48126",
-    "title":"Article-3 by Author 1",
-    "category":"AIML",
-    "content":"test article on AI and its updated"
+    "articleId":"69b3e1da9050049a5ebfa445",
+    "title":"Article-1 by Author1",
+    "category":"MECH",
+    "content":"MECH is a interesting course"
 }
 
-### DELETE OR RESTORE Article by Article ID (Soft Delete)
-PATCH http://localhost:2006/author-api/article
+### Delete/Restore an article by Article ID(soft delete)
+PATCH http://localhost:5000/author-api/article
 Content-Type: application/json
 
 {
-    "articleId":"69b3c7a033b8b3c24d6af1f3",
-    "isArticle":false
+ "articleId":"69b3a8f881ab391ebe9a7435",
+ "isArticleActive":true
 }
