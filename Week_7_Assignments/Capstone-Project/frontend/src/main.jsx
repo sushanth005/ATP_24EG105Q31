@@ -5,8 +5,8 @@ import App from './App.jsx'
 import axios from 'axios'
 
 // Set base URL for API calls
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
-axios.defaults.baseURL = "https://two4eg105q08-capstone.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+axios.defaults.baseURL = "https://q31-backend-9ehv.onrender.com";
 axios.defaults.withCredentials = true;
 
 createRoot(document.getElementById('root')).render(
