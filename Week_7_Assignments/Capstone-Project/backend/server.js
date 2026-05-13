@@ -1,124 +1,90 @@
-import exp from "express";
-import { config } from "dotenv";
-import { connect } from "mongoose";
+import exp from 'express'
+import {config} from 'dotenv'
+import {connect} from 'mongoose'
+import { userApp } from './APIs/UserAPI.js'
+import { authorApp } from './APIs/AuthorAPI.js'
+import { adminApp } from './APIs/AdminAPI.js'
+import { commonApp } from './APIs/CommonAPI.js'
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
-import { userApp } from "./APIs/UserAPI.js";
-import { authorApp } from "./APIs/AuthorAPI.js";
-import { adminApp } from "./APIs/AdminAPI.js";
-import { commonApp } from "./APIs/CommonAPI.js";
+config()
 
-import cookieParser from "cookie-parser";
-import cors from "cors";
+//create express app
+const app=exp()
 
-config();
+app.use(cors({
+  origin: (origin, callback) => {
+    if (
+      !origin ||
+      origin === "http://localhost:5174" ||
+      /^https:\/\/.*\.vercel\.app$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
-// create express application
-const app = exp();
+//body parser middleware
+app.use(exp.json())
+//add cookie parser middleware
+app.use(cookieParser())
 
-// CORS middleware
-app.use(
-  cors({
-    origin: [
-      "https://blog-app-beryl-nu.vercel.app"
-    ],
-    credentials: true,
-  })
-);
+//path level middleware
+app.use("/user-api",userApp);
+app.use("/author-api",authorApp)
+app.use("/admin-api",adminApp)
+app.use("/common-api",commonApp)
 
-// body parser middleware
-app.use(exp.json());
+//connect to DB
+const connectDB=async() => {
+    try{
+        await connect(process.env.DB_URL)
+        console.log("DB connected")
+        //assign port
+        const port= process.env.PORT || 5000
+        app.listen(port,() =>console.log(`Server listening on ${port}...`))
+    }
+    catch(err)
+    {
+        console.log("Error in Db connection",err);
+    }
+}
 
-// cookie parser middleware
-app.use(cookieParser());
+connectDB()
 
-// path level middleware
+//to handle invalid path
+app.use((req,res,next)=>{
+    res.status(404).json({message:`path ${req.url} is invalid`})
+})
 
-// user
-app.use("/user-api", userApp);
-
-// author
-app.use("/author-api", authorApp);
-
-// admin
-app.use("/admin-api", adminApp);
-
-// common operations
-app.use("/auth", commonApp);
-
-// connect to database
-const connectDB = async () => {
-  try {
-    await connect(process.env.DB_URL);
-
-    console.log("DB Server connected");
-
-    // assign port
-    const PORT = process.env.PORT || 2006;
-
-    app.listen(PORT, () => {
-      console.log(`Server listening on ${PORT}...`);
-    });
-  } catch (err) {
-    console.log("Error in DB connect:", err.message);
-  }
-};
-
-connectDB();
-
-// handle invalid paths
-app.use((req, res) => {
-  console.log(req.url);
-
-  res.status(404).json({
-    message: `Path ${req.url} is Invalid`,
-  });
-});
-
-// error handling middleware
+//Error handling middleware
 app.use((err, req, res, next) => {
-  console.log("Error name:", err.name);
-  console.log("Error code:", err.code);
-  console.log("Error cause:", err.cause);
+  console.log("error is ",err)
   console.log("Full error:", JSON.stringify(err, null, 2));
-
-  // ValidationError
+  //ValidationError
   if (err.name === "ValidationError") {
-    return res.status(400).json({
-      message: "error occurred",
-      error: err.message,
-    });
+    return res.status(400).json({ message: "error occurred", error: err.message });
   }
-
-  // CastError
+  //CastError
   if (err.name === "CastError") {
-    return res.status(400).json({
-      message: "error occurred",
-      error: err.message,
-    });
+    return res.status(400).json({ message: "error occurred", error: err.message });
   }
-
-  // Duplicate key error
-  const errCode =
-    err.code ?? err.cause?.code ?? err.errorResponse?.code;
-
-  const keyValue =
-    err.keyValue ??
-    err.cause?.keyValue ??
-    err.errorResponse?.keyValue;
+  const errCode = err.code ?? err.cause?.code ?? err.errorResponse?.code;
+  const keyValue = err.keyValue ?? err.cause?.keyValue ?? err.errorResponse?.keyValue;
 
   if (errCode === 11000) {
     const field = Object.keys(keyValue)[0];
     const value = keyValue[field];
-
     return res.status(409).json({
       message: "error occurred",
       error: `${field} "${value}" already exists`,
     });
   }
 
-  // server error
-  res.status(500).json({
-    message: "error occurred",
-    error: "Server side error",
-  });
+  //send server side error
+  res.status(500).json({ message: "error occurred", error: "Server side error" });
 });
