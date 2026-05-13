@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
 
@@ -13,8 +14,7 @@ import {
   emptyStateClass,
   articleStatusActive,
   articleStatusDeleted,
-} from "../styles/common.js";
-import api from "../api/axiosInstance.js";
+} from "../styles/common";
 
 function AuthorArticles() {
   const navigate = useNavigate();
@@ -24,23 +24,20 @@ function AuthorArticles() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log("user in author profile",user)
-  
+  console.log("user in author profile", user);
+
   useEffect(() => {
     if (!user) return;
 
     const getAuthorArticles = async () => {
-      
       try {
         setLoading(true);
-       //read articles of current author
-       let res= await api.get("/author-api/article", {withCredentials : true})
-       if(res.status === 200)
-       {
-        setArticles(res.data.payload);
-       }
-       //update articles state
-
+        //read articles of current author
+        let res = await axios.get("/author-api/articles", { withCredentials: true });
+        if (res.status === 200) {
+          setArticles(res.data.payload);
+        }
+        //update articles state
       } catch (err) {
         console.log(err);
         setError(err.response?.data?.error || "Failed to fetch articles");
