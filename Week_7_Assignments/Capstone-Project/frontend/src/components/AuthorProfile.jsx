@@ -3,18 +3,16 @@ import { useAuth } from "../store/authStore";
 
 import { pageWrapper, navLinkClass, divider } from "../styles/common";
 
-function UserProfile() {
+function AuthorProfile() {
   const currentUser = useAuth((state) => state.currentUser);
   const logout = useAuth((state) => state.logout);
   const navigate = useNavigate();
 
-
-  //CALL THIS FUNCTION ON LOGOUT
+  //call t6his function on logout
   const onLogout = async () => {
     //call login route
     await logout();
-
-    //on logout
+    //navigate to login component
     navigate("/login");
   };
 
@@ -88,4 +86,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default AuthorProfile;
