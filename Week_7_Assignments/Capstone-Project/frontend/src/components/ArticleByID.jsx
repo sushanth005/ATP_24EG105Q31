@@ -1,5 +1,6 @@
 import { useParams, useLocation, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { useAuth } from "../store/authStore";
 import {
   articlePageWrapper,
@@ -26,7 +27,6 @@ import {
   commentText,
 } from "../styles/common.js";
 import { useForm } from "react-hook-form";
-import api from "../api/axiosInstance.js";
 
 function ArticleByID() {
   const { id } = useParams();
@@ -41,15 +41,13 @@ function ArticleByID() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    //if article is transferred, then use it
     if (article) return;
 
-    //otherwise, make api req to read that article by id
     const getArticle = async () => {
       setLoading(true);
 
       try {
-        const res = await api.get(`/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`/user-api/article/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -78,9 +76,9 @@ function ArticleByID() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
-      const res = await api.patch(
-        "/author-api/article",
-        { articleId: article._id, isArticleActive: newStatus },
+      const res = await axios.patch(
+        `/author-api/articles/${id}/status`,
+        { isArticleActive: newStatus },
         { withCredentials: true },
       );
 
@@ -88,7 +86,7 @@ function ArticleByID() {
 
       setArticle(res.data.payload);
 
-      //  toast.success(res.data.message);
+      toast.success(res.data.message);
     } catch (err) {
       console.log("ERROR:", err.response);
 
@@ -112,9 +110,9 @@ function ArticleByID() {
     //add artcileId
     commentObj.articleId = article._id;
     console.log(commentObj);
-    let res = await api.put("/user-api/articles", commentObj, { withCredentials: true });
+    let res = await axios.put("/user-api/articles", commentObj, { withCredentials: true });
     if (res.status === 200) {
-      toast.success(res.data.Message);
+      toast.success(res.data.message);
       setArticle(res.data.payload);
     }
   };
