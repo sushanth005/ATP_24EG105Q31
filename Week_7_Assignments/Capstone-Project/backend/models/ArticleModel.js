@@ -1,54 +1,47 @@
 import {Schema,model,Types} from 'mongoose'
 
-//Create Comment Schema
 const commentSchema=new Schema({
     user:{
-        type: Types.ObjectId,
+        type:Types.ObjectId,
         ref:"user",
-        required:[true,"User ID Required"]
+        required:[true,"User ID is required"],   
     },
-    comment:{
+    comments:{
         type:String,
-        required:[true,"Enter Comment"]
-    },
-},
-{
-    versionKey:false,
-    timestamps:true,
-    strict:"throw"
-});
+        required:[true,"Type Comment"]
+    }
+})
 
-//Create Article Schema
-const articleSchema=new Schema({
+
+const ArticleSchema= new Schema({
     author:{
         type:Types.ObjectId,
         ref:"user",
-        required:[true,"Author ID is Required"]
+        required:[true,"Author ID is required"]
     },
     title:{
         type:String,
-        required:[true,"Title is Required"]
+        required:[true,"Title is required"]
     },
     category:{
         type:String,
-        required:[true,"Category is required"],
-
+        required:[true,"Category is required"]
     },
     content:{
-        type: String,
-        required: [true,"Content is required"]
+        type:String,
+        required:[true,"Content is required"]
     },
-    comments:[{type: commentSchema,default:[]}]
-    ,
-    isArticleActive:{
-        type:Boolean,
+    comments:[{type: commentSchema, default:[]}],
+    isArticleActive: {
+        type: Boolean,
         default:true
     }
 },{
-    versionKey:false,
     timestamps:true,
+    versionKey:false,
     strict:"throw"
 })
 
-//Create Article Model
-export const ArticleModel=model("article",articleSchema)
+
+//create model
+export const ArticleModel = model("article",ArticleSchema)
