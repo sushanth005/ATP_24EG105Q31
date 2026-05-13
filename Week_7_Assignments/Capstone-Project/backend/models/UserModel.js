@@ -1,42 +1,40 @@
-import {Schema,model,Types} from 'mongoose';
+import {Schema,model} from 'mongoose'
 
-//Create User Schema
 const userSchema=new Schema({
     firstName:{
-        type: String,
-        required:[true,"First Name is required"]
+        type:String,
+        required:[true,"First name is required"]
     },
     lastName:{
-        type: String
+        type:String,
     },
     email:{
-        type: String,
-        required:[true,"Email is Required"],
+        type:String,
+        required:[true,"Email is required"],
         unique:[true,"Email already exists"]
     },
     password:{
-        type: String,
-        required:[true,"Password is Required"]
-        //Apply Regular Expressions
+        type:String,
+        required:[true,"Password is required"]
     },
     role:{
-        type: String,
+        type:String,
         enum:["USER","AUTHOR","ADMIN"],
-        required:[true,"{Value} is an invalid role"]
+        required:[true,"Invalid role"]
     },
-    profileImageUrl:{
-        type:String
+    profileImageURL:{
+        type:String,
+        default:"",
     },
     isUserActive:{
         type:Boolean,
         default:true
     }
-},
-{
-    timeStamps:true,
+},{
+    timestamps:true,
     versionKey:false,
-    strict:"throw"  //By default strict is true
-});
+    strict:"throw"
+})
 
-//Create User Model
-export const UserModel=model("user",userSchema);
+//create model
+export const UserModel=model("user",userSchema)
