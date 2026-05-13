@@ -1,51 +1,50 @@
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
-
+const { verify } = jwt;
 config();
 
-const verifytoken = (allowedRoles = []) => {
+export const verifyToken = (...allowedRoles) => {
   return (req, res, next) => {
     try {
-      // GET TOKEN
-      const token = req.cookies?.token;
-
-      // TOKEN NOT FOUND
+      //get token from cookie
+      const token = req.cookies?.token; // { token : asdasd}
+      //check token existed or not
       if (!token) {
-        return res.status(401).json({
-          message: "Please Login First",
-        });
+        return res.status(401).json({ message: "Please login first" });
       }
+      //validate token(decode the token)
+      let decodedToken = verify(token, process.env.SECRET_KEY);
 
-      // VERIFY TOKEN
-      const decodedToken = jwt.verify(
-        token,
-        process.env.SECRET_KEY
-      );
-
-      console.log(decodedToken);
-
-      // ROLE CHECK
-      if (
-        allowedRoles.length > 0 &&
-        !allowedRoles.includes(decodedToken.role)
-      ) {
-        return res.status(403).json({
-          message: "You are not authorized",
-        });
+      // check the role is same as role in decodedToken
+      if (!allowedRoles.includes(decodedToken.role)) {
+        return res.status(403).json({ message: "You are not authorized" });
       }
-
-      // STORE USER DATA
+      //add decoded token
       req.user = decodedToken;
-
-      // NEXT MIDDLEWARE
       next();
     } catch (err) {
-      return res.status(401).json({
-        message: "Session Expired. Please Relogin",
-        error: err.message,
-      });
+      res.status(401).json({ message: "Invalid token" });
     }
   };
 };
 
-export default verifytoken;
+// export const verifyToken = async (req, res, next) => {
+//   try {
+//     //get token from cookie
+//     const token = req.cookies?.token; // { token : asdasd}
+//     //check token existed or not
+//     if (!token) {
+//       return res.status(401).json({ message: "Please login first" });
+//     }
+//     //validate token(decode the token)
+//     let decodedToken = verify(token, process.env.SECRET_KEY);
+
+//     // check the role is same as role in decodedToken
+
+//     //add decoded token
+//     res.user = decodedToken;
+//     next();
+//   } catch (err) {
+//     res.status(401).json({ message: "Invalid token" });
+//   }
+// };
