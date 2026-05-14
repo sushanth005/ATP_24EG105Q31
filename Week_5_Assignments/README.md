@@ -668,20 +668,3 @@ Possible future enhancements:
 Computer Science Engineering Student  
 Anurag University
 
----
-
-# ⭐ Summary
-
-Week-5 assignments helped in learning:
-
-✅ Modern Frontend Development  
-✅ Tailwind CSS  
-✅ React Fundamentals  
-✅ Responsive UI Design  
-✅ Dynamic Rendering  
-✅ Layout Techniques  
-✅ Reusable Components  
-✅ Modern Web Design Principles
-
----
-````
