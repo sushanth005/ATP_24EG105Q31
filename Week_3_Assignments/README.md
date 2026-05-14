@@ -295,8 +295,3 @@ You can test APIs using:
 **Sushanth Bandari**
 Computer Science Engineering Student
 Anurag University
-
----
-
-```
-```
