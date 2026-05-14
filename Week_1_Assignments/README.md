@@ -195,7 +195,3 @@ node Ass_Greatest_of_three.js
 Computer Science Engineering Student
 Anurag University
 
----
-
-```
-```
