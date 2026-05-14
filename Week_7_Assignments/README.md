@@ -2,8 +2,7 @@
 
 This repository contains the Week-7 assignments and the major **Capstone Project** developed using the MERN Stack.
 
-Frontend Deployed Link: https://blog-app-beryl-nu.vercel.app/
-Backend Deployed Link: https://atp-24eg105q31.onrender.com
+Deployed Link: https://capstone-ashen-three.vercel.app/
 
 The project demonstrates:
 
