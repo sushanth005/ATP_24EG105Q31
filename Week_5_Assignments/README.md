@@ -1,4 +1,3 @@
-````md
 # 🚀 Week-5 Assignments - HTML, CSS, Tailwind CSS & React
 
 This repository contains all **Week-5 assignments and mini projects** developed using:
