@@ -1,4 +1,3 @@
-````md
 # Week-2 JavaScript Assignments
 
 This repository contains **Week-2 JavaScript assignments and mini projects** focused on advanced JavaScript concepts, object manipulation, REST APIs, backend basics, promises, cloning techniques, and real-world applications.
