@@ -1,4 +1,3 @@
-````md
 # Week-1 JavaScript Assignments
 
 Welcome to the **Week-1 Assignments Repository**.  
