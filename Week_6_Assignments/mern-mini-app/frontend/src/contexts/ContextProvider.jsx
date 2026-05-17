@@ -1,27 +1,26 @@
-import {createContext} from 'react'
-import { useState } from 'react';
+import { useState } from "react";
+import { counterContextObj } from "./CounterContext";
 
-export const counterContextObj=createContext();
+function ContextProvider({ children }) {
 
-function ContextProvider({children}) 
-{
-    //state
-    const [counter,setCounter]=useState(10);
-    const [counter1,setCounter1]=useState(20);
+  // state
+  const [counter, setCounter] = useState(10);
+  const [counter1, setCounter1] = useState(10);
 
-    //function to change state
-    const changeCounter=()=>{
-        setCounter(counter+1);
-    }
+  // function to change state
+  const changeCounter = () => {
+    setCounter(counter + 1);
+  };
 
-    const changeCounter1=()=>{
-        setCounter1(counter1+1);
-    }
-    return (
-        <counterContextObj.Provider value={{counter,counter1,changeCounter,changeCounter1}}>
-            {children}
-        </counterContextObj.Provider>
-    )
+  const changeCounter1 = () => {
+    setCounter1(counter1 + 1);
+  };
+
+  return (
+    <counterContextObj.Provider value={{ counter, changeCounter, counter1, changeCounter1 }}>
+      {children}
+    </counterContextObj.Provider>
+  );
 }
 
-export default ContextProvider
+export default ContextProvider;
