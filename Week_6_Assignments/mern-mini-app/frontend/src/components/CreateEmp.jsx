@@ -1,110 +1,136 @@
 import { useForm } from "react-hook-form";
-import { useState,useContext} from 'react';
-import { useNavigate } from "react-router";
-import { counterContextObj } from "../contexts/ContextProvider";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiEndpoints } from "../config/apiConfig";
 
 function CreateEmp() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    const [loading,setLoading]=useState(false);
-    const [error,setError]=useState(null);
-    const navigate=useNavigate();
+  const navigate = useNavigate();
 
-    const {counter,changeCounter}=useContext(counterContextObj);
-    //console.log(counter);
+  const {
+    register,
+    handleSubmit,
+    reset,
+  } = useForm();
 
-    const {
-        register, //to register form fields
-        handleSubmit, //to handle for submissions
-        formState:{errors}} //to handle validators
-        =useForm();
+  // form submit
+  const onFormSubmit = async (newEmpObj) => {
+    try {
+      setLoading(true);
+      setError("");
 
-    const onFormSubmit=async(newEmployeeObj)=>{
-        //console.log(newEmployeeObj);
-        try
-        {
-            setLoading(true);
-            //make HTTP Post Req
-            let res=await fetch("http://localhost:6002/emp-api/create-emp",
-            {
-                method:"POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify(newEmployeeObj),
-            });
+      // make HTTP POST request
+      const res = await fetch(apiEndpoints.employees, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(newEmpObj),
+      });
 
-            if(res.status===201)
-            {
-                //naviagate to employess component programmatically
-                navigate("/list");
-            }
-            else
-            {
-                let errorRes=await res.json();
-                console.log(errorRes);
-                throw new Error(errorRes);
-            }
-        }catch(error)
-        {
+      // success
+      if (res.ok) {
+        reset();
+        navigate("/list");
+      } else {
+        // backend error
+        const errorRes = await res.json();
 
-            console.log("Error is: ",error)
-            setError(error);
-        }
-        finally
-        {
-            setLoading(false);
-        }
-    };
+        console.log("error response is", errorRes);
 
-    if(loading===true){
-        return <p className="text-center text-5xl">Loading....</p>
+        throw new Error(
+          errorRes.error ||
+          errorRes.message ||
+          "Something went wrong"
+        );
+      }
+    } catch (err) {
+      console.log("Error in catch:", err);
+
+      // handle error
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-    if(error!=null)
-    {
-        return <p className="text-center text-red-500 text-5xl">Reason:{error.message}</p>
-    }
+  };
+
+  // loading state
+  if (loading) {
+    return (
+      <p className="text-center text-4xl mt-10 text-white">
+        Loading...
+      </p>
+    );
+  }
+
+  // error state
+  if (error) {
+    return (
+      <p className="text-red-500 text-center text-2xl mt-10">
+        {error}
+      </p>
+    );
+  }
 
   return (
-    <div>
+    <div className="app-container min-h-screen flex flex-col justify-center">
+      <h1 className="text-4xl text-center text-white font-bold mb-6">
+        Create New Employee
+      </h1>
 
-    <h1 className="text-4xl">Counter: {counter}</h1>
-      <button onClick={changeCounter} className="bg-amber-300 p-5">
-        Change
-      </button>
+      <div className="max-w-lg mx-auto bg-white/90 p-6 rounded-2xl shadow-lg w-full">
+        <form onSubmit={handleSubmit(onFormSubmit)}>
+          
+          <input
+            type="text"
+            placeholder="Enter name"
+            {...register("name", { required: true })}
+            className="mb-3 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          />
 
-        <h1 className="text-5xl text-center text-gray-700">Create New Employee</h1>
-        {/*  */}
-        <form className="max-w-md mx-auto mt-10" onSubmit={handleSubmit(onFormSubmit)}>
-            <input type="text" 
-            placeholder="Enter Name" 
-            {...register("name")} 
-            className="mb-3 border p-3 w-full rounded-2xl"/>
+          <input
+            type="email"
+            placeholder="Enter Email"
+            {...register("email", { required: true })}
+            className="mb-3 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          />
 
-            <input type="email" 
-            placeholder="Enter Email" 
-            {...register("email")} 
-            className="mb-3 border p-3 w-full rounded-2xl"/>
+          <input
+            type="number"
+            placeholder="Enter mobile number"
+            {...register("mobile", { required: true })}
+            className="mb-3 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          />
 
-            <input type="number" 
-            placeholder="Enter Number" 
-            {...register("mobile")} 
-            className="mb-3 border p-3 w-full rounded-2xl"/>
+          <input
+            type="text"
+            placeholder="Enter designation"
+            {...register("designation", { required: true })}
+            className="mb-3 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          />
 
-            <input type="text" 
-            placeholder="Enter Designation" 
-            {...register("designation")} 
-            className="mb-3 border p-3 w-full rounded-2xl"/>
+          <input
+            type="text"
+            placeholder="Enter company name"
+            {...register("companyName", { required: true })}
+            className="mb-4 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-300"
+          />
 
-            <input type="text" 
-            placeholder="Enter Company Name" 
-            {...register("companyName")} 
-            className="mb-3 border p-3 w-full rounded-2xl"/>
-
-            <button type="submit" className="bg-gray-800 text-gray-300 p-4 block mx-auto">
-                Create Emp
+          <div className="text-center">
+            <button
+              type="submit"
+              className="mt-2 btn-primary w-40"
+            >
+              Add Employee
             </button>
+          </div>
         </form>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CreateEmp
+export default CreateEmp;
