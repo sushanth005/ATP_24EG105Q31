@@ -1,4 +1,6 @@
-# 🚀 Week-6 Assignments - React.js, MERN Stack & API Integration
+🚀 Week-6 Assignments - React.js, MERN Stack & API Integration
+
+Deployed link: https://q31week-6.vercel.app/
 
 This repository contains all **Week-6 assignments and mini projects** developed using:
 
