@@ -4,9 +4,8 @@
 
 3. Create express app & assign port number
 
-4. 
-
-5. Define schemas and create Models
+ Define schemas and create Models
+ 
     - UserTypeSchema:
         firstName
         lastName
