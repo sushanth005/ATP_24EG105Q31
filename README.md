@@ -247,7 +247,7 @@ node server.js
 ## Author
 
 **Sushanth Bandari**
-Computer Science Engineering Student
+Computer Science Engineering
 Anurag University
 
 ---
