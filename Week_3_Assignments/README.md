@@ -1,4 +1,3 @@
-````markdown
 # Backend 2 - Express.js REST API with Authentication
 
 This project is a backend application built using Node.js, Express.js, MongoDB, and Mongoose. It demonstrates REST API development, JWT authentication, middleware usage, password hashing, and CRUD operations for users and products.
