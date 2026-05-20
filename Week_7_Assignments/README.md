@@ -1,27 +1,12 @@
-# 🚀 Week-7 Assignments - Full Stack Blog Application (MERN Stack)
+# Week 7 Assignments - Full Stack Blog Application (MERN Stack)
 
-This repository contains the Week-7 assignments and the major **Capstone Project** developed using the MERN Stack.
+**Deployed Application:** https://capstone-ashen-three.vercel.app/
 
-Deployed Link: https://capstone-ashen-three.vercel.app/
-
-The project demonstrates:
-
-- Full Stack Development
-- Authentication & Authorization
-- JWT Token Security
-- Protected Routes
-- CRUD Operations
-- Role-Based Access Control
-- Zustand State Management
-- REST APIs
-- MongoDB Integration
-- Cloudinary Image Upload
-- Middleware Handling
-- Modern React Frontend
+This repository contains the Week 7 assignments and the major Capstone Project developed using the MERN Stack. The project demonstrates full stack development, authentication and authorization, JWT token security, protected routes, CRUD operations, role-based access control, Zustand state management, REST APIs, MongoDB integration, Cloudinary image uploads, middleware handling, and a modern React frontend.
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```bash
 Week_7_Assignments/
@@ -33,715 +18,273 @@ Week_7_Assignments/
 │   ├── author-req.http
 │   ├── user-req.http
 │   └── server.js
-```
+````
 
 ---
 
-# 🛠 Technologies Used
+## Technologies Used
 
-| Technology | Purpose |
-|------------|----------|
-| React.js | Frontend Development |
-| Vite | Fast Build Tool |
-| Node.js | Backend Runtime |
-| Express.js | REST APIs |
-| MongoDB | Database |
-| Mongoose | ODM |
-| JWT | Authentication |
-| Zustand | State Management |
-| Axios | API Requests |
-| bcryptjs | Password Hashing |
-| Cookie Parser | Cookie Handling |
-| Cloudinary | Image Upload |
-| Multer | File Upload Middleware |
-| CORS | Cross-Origin Requests |
-
----
-
-# 📚 Topics Covered
+| Technology         | Purpose                  |
+| ------------------ | ------------------------ |
+| React.js           | Frontend Development     |
+| Vite               | Fast Build Tool          |
+| Node.js            | Backend Runtime          |
+| Express.js         | REST API Framework       |
+| MongoDB            | NoSQL Database           |
+| Mongoose           | ODM for MongoDB          |
+| JWT (jsonwebtoken) | Authentication           |
+| Zustand            | State Management         |
+| Axios              | API Requests             |
+| bcryptjs           | Password Hashing         |
+| cookie-parser      | Cookie Handling          |
+| Cloudinary         | Image Upload and Storage |
+| Multer             | File Upload Middleware   |
+| CORS               | Cross-Origin Requests    |
 
 ---
 
-# ⚛ Frontend Development
+## Key Features
 
-- React Components
-- Hooks
-- Routing
-- Forms
-- API Integration
-- Protected Routes
-- Zustand Store
-- Authentication
-- Role-Based UI
-
----
-
-# 🌐 Backend Development
-
-- Express APIs
-- MongoDB CRUD
-- JWT Authentication
-- Middleware
-- Authorization
-- File Upload
-- Cloudinary Integration
-- REST APIs
+* User Registration and Login
+* JWT Authentication
+* Role-Based Authorization
+* Protected Routes
+* CRUD Operations for Articles
+* Comments System
+* Soft Delete Articles
+* Profile Image Upload with Cloudinary
+* Zustand State Management
+* Cookie-Based Authentication
+* Modular Backend Architecture
 
 ---
 
-# 🔐 Authentication Concepts
+## Roles Implemented
 
-- JWT Tokens
-- Cookie-Based Authentication
-- Role Validation
-- Protected APIs
-- Session Handling
-
----
-
-# 👥 Roles Implemented
-
-The application supports 3 user roles:
-
-| Role | Access |
-|------|---------|
-| USER | Read articles & comment |
-| AUTHOR | Create & manage articles |
-| ADMIN | Administrative controls |
+| Role   | Permissions                       |
+| ------ | --------------------------------- |
+| USER   | Read articles and add comments    |
+| AUTHOR | Create, edit, and manage articles |
+| ADMIN  | Administrative controls           |
 
 ---
 
-# 📂 Frontend Components
+## Frontend Development
 
-The frontend contains multiple reusable React components.
+The frontend is built using React.js and Vite with reusable components and protected routes.
 
----
+### Main Components
 
-# 🧩 Components Included
-
-| Component | Purpose |
-|------------|----------|
-| `AdminProfile.jsx` | Admin Dashboard/Profile |
-| `ArticleByID.jsx` | Display Single Article |
-| `Articles.jsx` | Display All Articles |
-| `AuthorArticles.jsx` | Author's Articles |
-| `AuthorProfile.jsx` | Author Dashboard |
-| `EditArticle.jsx` | Edit Existing Article |
-| `Footer.jsx` | Footer Layout |
-| `Header.jsx` | Navigation Header |
-| `Home.jsx` | Landing Page |
-| `Login.jsx` | User Login |
-| `ProtectedRoutes.jsx` | Route Protection |
-| `Register.jsx` | User Registration |
-| `RootLayout.jsx` | Main Layout |
-| `Unauthorized.jsx` | Unauthorized Access Page |
-| `UserProfile.jsx` | User Dashboard |
-| `WriteArticles.jsx` | Create Articles |
+| Component             | Purpose                  |
+| --------------------- | ------------------------ |
+| `Home.jsx`            | Landing page             |
+| `Login.jsx`           | User login               |
+| `Register.jsx`        | User registration        |
+| `Articles.jsx`        | Display all articles     |
+| `ArticleByID.jsx`     | Display a single article |
+| `WriteArticles.jsx`   | Create new articles      |
+| `EditArticle.jsx`     | Edit existing articles   |
+| `AuthorProfile.jsx`   | Author dashboard         |
+| `UserProfile.jsx`     | User dashboard           |
+| `AdminProfile.jsx`    | Admin dashboard          |
+| `ProtectedRoutes.jsx` | Route protection         |
+| `Unauthorized.jsx`    | Access denied page       |
+| `Header.jsx`          | Navigation header        |
+| `Footer.jsx`          | Footer layout            |
+| `RootLayout.jsx`      | Main application layout  |
 
 ---
 
-# 🏠 Home Component
+## Zustand State Management
 
-The Home component acts as the landing page.
+The project uses Zustand to manage authentication state globally.
 
-## Features
+### Features
 
-- Displays application overview
-- Navigation links
-- Responsive layout
-
----
-
-# 🔑 Login Component
-
-Handles user authentication.
-
-## Features
-
-- Email & Password Login
-- JWT Authentication
-- Cookie Storage
-- Role-Based Access
+* Login and logout handling
+* Authentication persistence
+* Session restoration
+* Error management
 
 ---
 
-## Example Login Flow
+## Backend Architecture
 
-```jsx
-axios.post("/auth/login", userCred)
-```
-
-### Explanation
-
-| Function | Purpose |
-|----------|----------|
-| axios.post() | Sends login request |
-| userCred | User credentials |
-| JWT Token | Authentication token |
-
----
-
-# 📝 Register Component
-
-Allows users to create accounts.
-
-## Features
-
-- Form Validation
-- Profile Image Upload
-- Password Hashing
-- Role Selection
-
----
-
-# ✍ Write Articles Component
-
-Used by authors to publish articles.
-
-## Features
-
-- Create Article
-- Category Selection
-- Rich Content Handling
-- Protected Route Access
-
----
-
-# 📖 ArticleByID Component
-
-Displays full article details.
-
-## Features
-
-- Article Content
-- Comments Section
-- Dynamic Rendering
-
----
-
-# 🛡 Protected Routes
-
-The project uses protected routes for authentication.
-
-## Example
-
-```jsx
-<Route
-  path="/profile"
-  element={
-    <ProtectedRoutes>
-      <UserProfile />
-    </ProtectedRoutes>
-  }
-/>
-```
-
-### Purpose
-
-- Prevents unauthorized access
-- Validates login status
-- Protects private pages
-
----
-
-# 🧠 Zustand State Management
-
-The project uses Zustand for authentication state management.
-
-## File
-
-`authStore.js` :contentReference[oaicite:0]{index=0}
-
----
-
-# ⚡ Zustand Features
-
-- Login State
-- Authentication Persistence
-- Logout Handling
-- Error Management
-- Session Restore
-
----
-
-# 🔑 Login Function Explanation
-
-```js
-login: async (userCred) => {
-```
-
-### Purpose
-
-Authenticates user credentials.
-
----
-
-## API Request
-
-```js
-axios.post("http://localhost:2006/auth/login")
-```
-
-### Explanation
-
-- Sends login request to backend
-- Stores JWT token in cookies
-- Updates global authentication state
-
----
-
-# 🔄 checkAuth Function
-
-```js
-checkAuth: async () => {
-```
-
-### Purpose
-
-Restores authentication on page refresh.
-
----
-
-# 🌐 Backend Architecture
-
-The backend follows modular architecture.
-
----
-
-# 📂 Backend Structure
+The backend follows a modular structure with separate APIs, models, middleware, and configuration files.
 
 ```bash
 backend/
 │
 ├── APIs/
+│   ├── AdminAPI.js
+│   ├── AuthorAPI.js
+│   ├── CommonAPI.js
+│   └── UserAPI.js
+│
 ├── models/
+│   ├── ArticleModel.js
+│   └── UserModel.js
+│
 ├── middlewares/
+│   └── VerifyToken.js
+│
 ├── config/
 └── server.js
 ```
 
 ---
 
-# 📦 APIs Included
+## Authentication and Authorization
 
-| API File | Purpose |
-|----------|----------|
-| `AdminAPI.js` | Admin Operations |
-| `AuthorAPI.js` | Author Operations |
-| `CommonAPI.js` | Login/Register |
-| `UserAPI.js` | User Operations |
+The application uses:
 
----
+* JWT Tokens
+* HTTP-only Cookies
+* Role-Based Middleware
+* Protected Routes
 
-# 🔐 Authentication API
+### Security Features
 
-Authentication APIs are defined in:
-
-`CommonAPI.js` :contentReference[oaicite:1]{index=1}
-
----
-
-# 📌 Features in CommonAPI
-
-- Register User
-- Login User
-- Logout
-- JWT Authentication
-- Password Hashing
-- Image Upload
-- Session Validation
+* Password hashing using bcryptjs
+* Token verification
+* Role validation
+* Session expiration handling
 
 ---
 
-# 🔒 Password Hashing
+## User Model
 
-```js
-newUser.password = await hash(newUser.password, 12);
-```
-
-### Explanation
-
-| Function | Purpose |
-|----------|----------|
-| hash() | Encrypts password |
-| 12 | Salt rounds |
-
----
-
-# 🔑 JWT Token Generation
-
-```js
-const signedToken = sign(
-  {
-    id:user._id,
-    email:email,
-    role:user.role
-  },
-  process.env.SECRET_KEY,
-  {expiresIn:"6h"}
-)
-```
-
-### Explanation
-
-- Creates secure authentication token
-- Stores user data
-- Token expires after 6 hours
+| Field             | Description            |
+| ----------------- | ---------------------- |
+| `firstName`       | User first name        |
+| `lastName`        | User last name         |
+| `email`           | Unique email address   |
+| `password`        | Hashed password        |
+| `role`            | USER, AUTHOR, or ADMIN |
+| `profileImageUrl` | Cloudinary image URL   |
+| `isUserActive`    | Account status         |
 
 ---
 
-# 🍪 Cookie Authentication
+## Article Model
 
-```js
-res.cookie("token", signedToken)
-```
-
-### Purpose
-
-Stores JWT securely in browser cookies.
-
----
-
-# 🛡 Verify Token Middleware
-
-Authentication middleware is implemented in:
-
-`VerifyToken.js` :contentReference[oaicite:2]{index=2}
+| Field             | Description             |
+| ----------------- | ----------------------- |
+| `author`          | Reference to the author |
+| `title`           | Article title           |
+| `category`        | Article category        |
+| `content`         | Article content         |
+| `comments`        | Array of comments       |
+| `isArticleActive` | Soft delete status      |
 
 ---
 
-# ⚡ Middleware Features
+## API Modules
 
-- Token Verification
-- Role Validation
-- Authorization
-- Session Expiry Handling
+### Common API
 
----
+Handles:
 
-# 🔐 Role Validation
+* User Registration
+* Login
+* Logout
+* Authentication
+* Password Hashing
+* Profile Image Upload
 
-```js
-if(!allowedRoles.includes(decodedToken.role))
-```
+### Author API
 
-### Purpose
+Handles:
 
-Restricts unauthorized access.
+* Create Articles
+* Edit Articles
+* View Own Articles
+* Soft Delete Articles
 
----
+### User API
 
-# 👨‍💻 Author APIs
+Handles:
 
-Author routes are implemented in:
+* View Active Articles
+* Add Comments
 
-`AuthorAPI.js` :contentReference[oaicite:3]{index=3}
+### Admin API
 
----
-
-# ✍ Author Features
-
-- Create Articles
-- Edit Articles
-- Delete Articles
-- Read Own Articles
+Handles administrative operations and controls.
 
 ---
 
-# 📝 Create Article API
+## CRUD Operations
 
-```js
-authorApp.post("/articles")
-```
-
-### Purpose
-
-Allows authors to publish articles.
+| Operation            | HTTP Method |
+| -------------------- | ----------- |
+| Create               | POST        |
+| Read                 | GET         |
+| Update               | PUT         |
+| Delete (Soft Delete) | PATCH       |
 
 ---
 
-# ✏ Update Article API
+## File Upload and Cloudinary Integration
 
-```js
-authorApp.put("/article")
+### Multer Usage
+
+```javascript
+upload.single("profileImageUrl")
 ```
 
 ### Features
 
-- Updates article content
-- Validates author ownership
-- Prevents unauthorized editing
+* Image upload handling
+* Cloud storage
+* CDN-based delivery
 
 ---
 
-# 🗑 Soft Delete Feature
+## Comments System
 
-```js
-authorApp.patch("/article")
-```
-
-### Purpose
-
-Temporarily disables article instead of permanent deletion.
+Users can add comments to articles, and each comment is associated with the logged-in user.
 
 ---
 
-# 👤 User APIs
+## Cookie-Based Authentication
 
-User APIs are implemented in:
-
-`UserAPI.js` :contentReference[oaicite:4]{index=4}
+JWT tokens are stored securely in HTTP-only cookies to maintain user sessions.
 
 ---
 
-# 📚 User Features
+## CORS Configuration
 
-- Read Articles
-- Add Comments
-- View Content
+The backend enables cross-origin requests with credentials support to allow communication between the frontend and backend.
 
 ---
 
-# 💬 Add Comment API
+## Error Handling
 
-```js
-articleDocument.comments.push({
-  user:userIdOfToken,
-  comment:comment
-})
-```
+Centralized error handling is implemented to manage:
 
-### Explanation
-
-- Adds comment to article
-- Links comment with logged-in user
+* Validation errors
+* Duplicate email errors
+* Unauthorized access
+* Server errors
 
 ---
 
-# 🗄 Article Schema
+## How to Run the Frontend
 
-Defined in:
-
-`ArticleModel.js` :contentReference[oaicite:5]{index=5}
-
----
-
-# 📘 Article Fields
-
-| Field | Purpose |
-|------|----------|
-| author | Article Author |
-| title | Article Title |
-| category | Article Category |
-| content | Article Content |
-| comments | User Comments |
-| isArticleActive | Soft Delete Status |
-
----
-
-# 💬 Comment Schema
-
-```js
-comments:[{type: commentSchema,default:[]}]
-```
-
-### Purpose
-
-Stores article comments dynamically.
-
----
-
-# 👤 User Schema
-
-Defined in:
-
-`UserModel.js` :contentReference[oaicite:6]{index=6}
-
----
-
-# 📘 User Schema Fields
-
-| Field | Purpose |
-|------|----------|
-| firstName | User First Name |
-| lastName | User Last Name |
-| email | User Email |
-| password | Encrypted Password |
-| role | USER/AUTHOR/ADMIN |
-| profileImageUrl | Cloudinary Image |
-| isUserActive | Account Status |
-
----
-
-# 🌐 Backend Server
-
-Defined in:
-
-`server.js` :contentReference[oaicite:7]{index=7}
-
----
-
-# ⚡ Server Features
-
-- Express Server
-- MongoDB Connection
-- Middleware Integration
-- Route Handling
-- Error Handling
-
----
-
-# 🔌 Database Connection
-
-```js
-await connect(process.env.DB_URL);
-```
-
-### Purpose
-
-Connects backend to MongoDB database.
-
----
-
-# 🌍 CORS Configuration
-
-```js
-app.use(cors({
-  origin:["http://localhost:5173"],
-  credentials:true,
-}))
-```
-
-### Purpose
-
-Allows frontend to communicate with backend.
-
----
-
-# ⚠ Error Handling Middleware
-
-The project includes centralized error handling.
-
----
-
-# 🔴 Validation Error Handling
-
-```js
-if (err.name === "ValidationError")
-```
-
-### Purpose
-
-Handles invalid data errors.
-
----
-
-# 🔴 Duplicate Email Handling
-
-```js
-if (errCode === 11000)
-```
-
-### Purpose
-
-Prevents duplicate account creation.
-
----
-
-# ☁ Cloudinary Integration
-
-Used for profile image uploads.
-
-## Features
-
-- Cloud Image Storage
-- CDN URLs
-- Fast Image Delivery
-
----
-
-# 📤 Multer File Upload
-
-```js
-upload.single("profileImageUrl")
-```
-
-### Purpose
-
-Handles image uploads from frontend.
-
----
-
-# 🔄 CRUD Operations Covered
-
-| Operation | Method |
-|-----------|---------|
-| Create | POST |
-| Read | GET |
-| Update | PUT |
-| Delete | PATCH |
-
----
-
-# 🔐 Security Features
-
-The project implements:
-
-✅ Password Hashing  
-✅ JWT Authentication  
-✅ Protected APIs  
-✅ Role-Based Access  
-✅ Cookie Authentication  
-✅ Authorization Middleware
-
----
-
-# 🎯 Key Learning Outcomes
-
-By completing this project, the following concepts were learned:
-
-✅ Full Stack MERN Development  
-✅ React Frontend Architecture  
-✅ REST API Design  
-✅ MongoDB CRUD Operations  
-✅ Authentication & Authorization  
-✅ JWT Token Handling  
-✅ Zustand State Management  
-✅ Protected Routes  
-✅ Cloudinary Image Upload  
-✅ Middleware Development  
-✅ Error Handling  
-✅ Cookie Authentication
-
----
-
-# 🚀 How to Run Frontend
-
----
-
-# Step 1
-
-Move to frontend folder
+### 1. Navigate to the Frontend Folder
 
 ```bash
 cd frontend
 ```
 
----
-
-# Step 2
-
-Install dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
-# Step 3
-
-Start React app
+### 3. Start the Development Server
 
 ```bash
 npm run dev
@@ -749,45 +292,32 @@ npm run dev
 
 ---
 
-# 🚀 How to Run Backend
+## How to Run the Backend
 
----
-
-# Step 1
-
-Move to backend folder
+### 1. Navigate to the Backend Folder
 
 ```bash
 cd backend
 ```
 
----
-
-# Step 2
-
-Install dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
-# Step 3
-
-Create `.env` file
+### 3. Create a `.env` File
 
 ```env
 PORT=2006
-DB_URL=your_mongodb_url
+DB_URL=your_mongodb_connection_string
 SECRET_KEY=your_secret_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
 
----
-
-# Step 4
-
-Run server
+### 4. Start the Server
 
 ```bash
 node server.js
@@ -795,63 +325,77 @@ node server.js
 
 ---
 
-# 📦 Backend Dependencies
+## API Testing
 
-The backend uses the following major packages:
+You can test the backend APIs using:
 
-- express
-- mongoose
-- bcryptjs
-- jsonwebtoken
-- cors
-- dotenv
-- cookie-parser
-- cloudinary
-- multer
+* Postman
+* Thunder Client
+* `.http` files included in the project:
 
-Dependencies listed in `package-lock.json` :contentReference[oaicite:8]{index=8}
+  * `admin-req.http`
+  * `author-req.http`
+  * `user-req.http`
 
 ---
 
-# 🔮 Future Enhancements
+## Learning Outcomes
 
-Possible improvements:
+By completing this project, the following skills were strengthened:
 
-- Rich Text Editor
-- Like System
-- Bookmark Articles
-- Notifications
-- Admin Dashboard Analytics
-- Dark Mode
-- Article Search
-- Pagination
-- Real-Time Chat
-- Deployment
+* Full Stack MERN Development
+* React Frontend Architecture
+* REST API Design
+* MongoDB CRUD Operations
+* Authentication and Authorization
+* JWT Token Handling
+* Zustand State Management
+* Protected Routes
+* Cloudinary Image Upload
+* Middleware Development
+* Error Handling
+* Cookie-Based Authentication
 
 ---
 
-# 👨‍💻 Author
+## Future Enhancements
 
-## Sushanth Bandari
+Possible improvements include:
 
-Computer Science Engineering Student  
+* Rich Text Editor
+* Like and Bookmark System
+* Notifications
+* Admin Dashboard Analytics
+* Dark Mode
+* Article Search and Filters
+* Pagination
+* Real-Time Chat
+* Production Deployment
+
+---
+
+## Author
+
+**Sushanth Bandari**
+Computer Science Engineering Student
 Anurag University
 
 ---
 
-# ⭐ Project Summary
+## Summary
 
-The Week-7 Capstone Project demonstrates:
+The Week 7 Capstone Project demonstrates:
 
-✅ MERN Stack Development  
-✅ JWT Authentication  
-✅ Role-Based Authorization  
-✅ Zustand State Management  
-✅ CRUD Operations  
-✅ Protected Routes  
-✅ Cloudinary Integration  
-✅ REST APIs  
-✅ Full Stack Architecture  
-✅ Modern React Development
+* Full Stack MERN Development
+* JWT Authentication
+* Role-Based Authorization
+* Zustand State Management
+* CRUD Operations
+* Protected Routes
+* Cloudinary Integration
+* REST API Design
+* Modern React Development
+* Scalable Full Stack Architecture
 
----
+```
+```
