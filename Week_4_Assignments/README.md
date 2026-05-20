@@ -1,4 +1,4 @@
-# Week 4 HTML and CSS Assignments
+# Week 4 HTML Assignments
 
 This repository contains Week 4 assignments and mini projects created using HTML5 and CSS3. The projects focus on webpage structure, responsive layouts, forms, tables, profile cards, Flexbox, Grid, CSS positioning, and mini responsive websites.
 
@@ -23,26 +23,6 @@ This repository contains Week 4 assignments and mini projects created using HTML
 | `task4/` | Additional HTML/CSS task |
 | `demo1.html` | HTML demo page |
 | `demo2.html` | HTML demo page |
-
----
-
-## Concepts Covered
-
-- HTML5 Basics
-- CSS3 Styling
-- Forms and Validation
-- Tables
-- Navigation Bars
-- Flexbox
-- CSS Grid
-- Media Queries
-- Responsive Design
-- CSS Positioning
-- Cards and Layouts
-- Multi-page Websites
-- Rowspan and Colspan
-- Hover Effects
-- Shadows and Border Radius
 
 ---
 
@@ -236,43 +216,6 @@ Several projects use the following techniques to ensure compatibility across dev
 - Media Queries
 - Flexbox
 - CSS Grid
-
----
-
-## How to Run
-
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-````
-
-### 2. Open the Project Folder
-
-```bash
-cd HTML
-```
-
-### 3. Open Any HTML File in Your Browser
-
-Examples:
-
-```bash
-home.html
-```
-
-or
-
-```bash
-index.html
-```
-
----
-
-## Technologies Used
-
-* HTML5
-* CSS3
 
 ---
 
