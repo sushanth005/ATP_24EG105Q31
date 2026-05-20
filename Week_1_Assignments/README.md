@@ -1,14 +1,13 @@
-# Week-1 JavaScript Assignments
+# Week 1 JavaScript Assignments
 
-Welcome to the **Week-1 Assignments Repository**.  
-This repository contains beginner-level JavaScript programs that cover basic programming concepts such as conditions, loops, arrays, functions, and objects.
+This repository contains beginner-level JavaScript programs that cover fundamental programming concepts such as conditional statements, loops, arrays, functions, and objects.
 
 ---
 
-# 📂 Assignment Files
+## Assignment Files
 
 | File Name | Description |
-|------------|-------------|
+|----------|-------------|
 | `Ass_Greatest_of_three.js` | Finds the greatest among three numbers |
 | `Ass_Greatest_of_two.js` | Finds the greater number between two numbers |
 | `Ass_Smallest_of_array.js` | Finds the smallest element in an array |
@@ -18,179 +17,90 @@ This repository contains beginner-level JavaScript programs that cover basic pro
 
 ---
 
-# 📘 Programs Overview
+## Programs Overview
 
----
+### 1. Greatest of Three Numbers
 
-## 1️⃣ Greatest of Three Numbers
+This program finds the largest number among three given numbers using conditional statements.
 
-Finds the largest number among three given numbers using conditional statements.
-
-### Example
-```js
+#### Example
 console.log(greatest(10, 20, 30));
-````
-
-### Output
-
-```bash
+Output
 30
-```
+2. Greatest of Two Numbers
 
----
+This program compares two numbers and returns the greater one.
 
-## 2️⃣ Greatest of Two Numbers
-
-Compares two numbers and returns the greater number.
-
-### Example
-
-```js
-console.log(greatest(10,20));
-```
-
-### Output
-
-```bash
+Example
+console.log(greatest(10, 20));
+Output
 20
-```
 
-If both numbers are equal:
+If both numbers are equal, the program returns:
 
-```bash
 Both numbers are equal
-```
+3. Smallest Element in an Array
 
----
+This program finds the smallest value in an array.
 
-## 3️⃣ Smallest Element in an Array
-
-Finds the smallest value from an array.
-
-### Example
-
-```js
-console.log(findSmallest([90,78,30,45,80]));
-```
-
-### Output
-
-```bash
+Example
+console.log(findSmallest([90, 78, 30, 45, 80]));
+Output
 30
-```
+4. Search Element in an Array
 
----
+This program searches for an element in an array and returns its index position.
 
-## 4️⃣ Search Element in Array
-
-Searches for an element in an array and returns its index position.
-
-### Example
-
-```js
-console.log(searchelement([10,20,30,40,55,93,43], 93));
-```
-
-### Output
-
-```bash
+Example
+console.log(searchelement([10, 20, 30, 40, 55, 93, 43], 93));
+Output
 5
-```
 
-If element is not found:
+If the element is not found, the program returns:
 
-```bash
 Not Found!
-```
+5. Employee Object Operations
 
----
+This program performs various operations on an array of employee objects.
 
-## 5️⃣ Employee Object Operations
+Operations Included
+Adding a new employee
+Removing the employee named Kiran
+Updating Sneha's marks
+Concepts Used
+Arrays of objects
+splice()
+find()
+findIndex()
+6. Sum of Array Elements
 
-Performs multiple operations on employee objects.
+This program calculates the total sum of all elements in an array.
 
-### Operations Performed
-
-* Add new employee
-* Remove employee `"Kiran"`
-* Update Sneha’s marks
-
-### Concepts Used
-
-* Arrays of Objects
-* `splice()`
-* `find()`
-* `findIndex()`
-
----
-
-## 6️⃣ Sum of Array Elements
-
-Calculates the total sum of array elements.
-
-### Example
-
-```js
+Example
 console.log(arraySum([90, 78, 65, 98]));
-```
-
-### Output
-
-```bash
+Output
 331
-```
-
----
-
-# 🛠 Concepts Covered
-
-* Functions
-* Conditional Statements
-* Loops
-* Arrays
-* Objects
-* Array Methods
-* Searching Techniques
-* Array Manipulation
-
----
-
-# ▶️ How to Run the Programs
-
-## Step 1:
-
+Concepts Covered
+Functions
+Conditional Statements
+Loops
+Arrays
+Objects
+Array Methods
+Searching Techniques
+Array Manipulation
+How to Run the Programs
 Install Node.js on your system.
-
-## Step 2:
-
-Open terminal in the project folder.
-
-## Step 3:
-
-Run any JavaScript file using:
-
-```bash
+Open the terminal in the project folder.
+Run any JavaScript file using the following command:
 node filename.js
-```
-
-### Example
-
-```bash
+Example
 node Ass_Greatest_of_three.js
-```
+Technologies Used
+JavaScript (ES6)
+Node.js
+Author
 
----
-
-# 💻 Technologies Used
-
-* JavaScript (ES6)
-* Node.js
-
----
-
-# 👨‍💻 Author
-
-**Sushanth Bandari**
+Sushanth Bandari
 Computer Science Engineering Student
 Anurag University
-
