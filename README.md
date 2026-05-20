@@ -10,6 +10,19 @@ The repository covers the complete learning journey from basic web development t
 - **Week 7 Capstone Project:** https://capstone-ashen-three.vercel.app/
 
 ---
+## Weekly Overview
+
+| Week | Topics Covered |
+|------|----------------|
+| Week 1 | JavaScript Fundamentals - Functions, Conditions, Arrays, and Objects |
+| Week 2 | Advanced JavaScript - Classes, Promises, Object Cloning, REST APIs, and Express.js Basics |
+| Week 3 | Backend Development - Express.js, MongoDB, Mongoose, JWT Authentication, and CRUD Operations |
+| Week 4 | HTML5 and CSS3 - Forms, Tables, Flexbox, Grid, Positioning, and Responsive Design |
+| Week 5 | HTML, CSS, Tailwind CSS, and React.js Fundamentals |
+| Week 6 | React.js, MERN Stack, Context API, React Router, API Integration, and CRUD Operations |
+| Week 7 | Full Stack MERN Capstone Project - Authentication, Authorization, Zustand, Cloudinary, and Role-Based Access Control |
+
+---
 
 ## Folder Structure
 
@@ -17,15 +30,104 @@ The repository covers the complete learning journey from basic web development t
 ATP_24EG105Q31/
 │
 ├── Week_1_Assignments/
-├── Week_2_Assignments/
-├── Week_3_Assignments/
-├── Week_4_Assignments/
-├── Week_5_Assignments/
-├── Week_6_Assignments/
-├── Week_7_Assignments/
+│   ├── Ass_Greatest_of_three.js
+│   ├── Ass_Greatest_of_two.js
+│   ├── Ass_Smallest_of_array.js
+│   ├── Ass_array_find.js
+│   ├── Ass_obj.js
+│   ├── Ass_sum_array.js
+│   └── README.md
 │
-└── .gitignore
+├── Week_2_Assignments/
+│   ├── Backend_demo/
+│   ├── Shopping_Cart/
+│   ├── Task_Management/
+│   ├── Ass1_Shopping_Cart.js
+│   ├── Ass1_Temp_Analyzer.js
+│   ├── Ass2_Course_Name.js
+│   ├── Ass2_Student_Performance.js
+│   ├── Ass3_Employee_payroll.js
+│   ├── Ass3_Student_Marks.js
+│   ├── Ass4_Movie_streaming.js
+│   ├── Ass5_Bank_transaction_analyzer.js
+│   ├── Ass_Exam_simulator.js
+│   ├── Ass_Library_Class.js
+│   ├── Ass_Otp.js
+│   ├── Ass_Promise.js
+│   ├── Ass_REST.js
+│   ├── Ass_copy.js
+│   ├── Ass_copy1.js
+│   ├── Ass_deep_copy.js
+│   ├── Ass_shallow_copy.js
+│   └── README.md
+│
+├── Week_3_Assignments/
+│   ├── Backend_2/
+│   │   ├── API/
+│   │   ├── auth/
+│   │   ├── middlewares/
+│   │   ├── models/
+│   │   ├── server.js
+│   │   └── README.md
+│   └── README.md
+│
+├── Week_4_Assignments/
+│   ├── Basic_html_ass/
+│   ├── Cities/
+│   ├── Profile-Card/
+│   ├── Tables/
+│   ├── flex/
+│   ├── form/
+│   ├── grid/
+│   ├── profile-position/
+│   ├── project-demo1/
+│   ├── project-demo2/
+│   ├── table_ass1/
+│   ├── table_ass2/
+│   ├── task4/
+│   ├── demo1.html
+│   ├── demo2.html
+│   └── README.md
+│
+├── Week_5_Assignments/
+│   ├── Cities/
+│   ├── Profile-Card/
+│   ├── Tables/
+│   ├── Tailwind-project/
+│   ├── flex/
+│   ├── form/
+│   ├── grid/
+│   ├── profile-position/
+│   ├── react-ass-product-list/
+│   ├── react-ass-user-list/
+│   ├── table_ass1/
+│   ├── table_ass2/
+│   ├── task4/
+│   └── README.md
+│
+├── Week_6_Assignments/
+│   ├── mern-mini-app/
+│   │   ├── backend/
+│   │   └── frontend/
+│   ├── react-app-1/
+│   ├── react-app-2/
+│   ├── react-routing-demo/
+│   └── README.md
+│
+├── Week_7_Assignments/
+│   ├── Capstone-Project/
+│   │   ├── backend/
+│   │   ├── frontend/
+│   │   ├── admin-req.http
+│   │   ├── author-req.http
+│   │   ├── user-req.http
+│   │   └── README.md
+│   └── README.md
+│
+├── .gitignore
+└── README.md
 ````
+
 
 ---
 
@@ -68,43 +170,6 @@ ATP_24EG105Q31/
 * CORS
 * dotenv
 * cookie-parser
-
----
-
-## Weekly Overview
-
-| Week   | Topics Covered                        |
-| ------ | ------------------------------------- |
-| Week 1 | HTML Basics, Forms, Tables            |
-| Week 2 | CSS Styling, Layouts, Flexbox         |
-| Week 3 | Advanced CSS, Grid, Responsive Design |
-| Week 4 | JavaScript Fundamentals               |
-| Week 5 | React.js and Tailwind CSS             |
-| Week 6 | MERN Stack and API Integration        |
-| Week 7 | Full Stack Capstone Project           |
-
----
-
-## Major Projects
-
-### Week 5
-
-* React Product List
-* React User List
-* Tailwind CSS Projects
-
-### Week 6
-
-* MERN Mini Employee Management Application
-* React Routing Demo
-* Context API Examples
-
-### Week 7
-
-* Full Stack Blog Application
-* Authentication and Authorization
-* Role-Based Access Control
-* Cloudinary Image Upload
 
 ---
 
