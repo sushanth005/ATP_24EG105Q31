@@ -59,42 +59,6 @@ Backend_2/
 
 ---
 
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-```
-
-### 2. Navigate to the Project Folder
-
-```bash
-cd Backend_2
-```
-
-### 3. Install Dependencies
-
-```bash
-npm install
-```
-
----
-
-## Running the Server
-
-```bash
-node server.js
-```
-
-The server will start at:
-
-```bash
-http://localhost:3000
-```
-
----
-
 ## User Model
 
 The user schema includes the following fields:
@@ -105,12 +69,6 @@ The user schema includes the following fields:
 | `password` | String | Required                       |
 | `email`    | String | Required, unique               |
 | `age`      | Number | Optional                       |
-
-### User Model Features
-
-* Password hashing using bcrypt
-* Email uniqueness validation
-* Automatic timestamps
 
 ---
 
@@ -124,12 +82,6 @@ The product schema includes the following fields:
 | `productName` | String | Minimum 4 and maximum 12 characters |
 | `price`       | Number | Minimum 10000 and maximum 50000     |
 | `brand`       | String | Required                            |
-
-### Product Model Features
-
-* Schema validation
-* Unique product IDs
-* Automatic timestamps
 
 ---
 
@@ -161,21 +113,7 @@ This middleware performs the following checks:
 * Validates the token
 * Checks for token expiration
 
-### Protected Route Example
-
-```javascript
-userApp.get("/users", verifyToken, async (req, res) => {
-    let userslist = await UserModel.find();
-
-    res.status(200).json({
-        message: "users",
-        payload: userslist
-    });
-});
-```
-
 ---
-
 ## API Endpoints
 
 ### User APIs
