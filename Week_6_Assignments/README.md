@@ -1,4 +1,3 @@
-````markdown
 # Week 6 Assignments - React.js, MERN Stack and API Integration
 
 **Deployed Application:** https://q31week-6.vercel.app/
