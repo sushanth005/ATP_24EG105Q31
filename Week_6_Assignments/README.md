@@ -1,33 +1,13 @@
-🚀 Week-6 Assignments - React.js, MERN Stack & API Integration
+````markdown
+# Week 6 Assignments - React.js, MERN Stack and API Integration
 
-Deployed link: https://q31week-6.vercel.app/
+**Deployed Application:** https://q31week-6.vercel.app/
 
-This repository contains all **Week-6 assignments and mini projects** developed using:
-
-- React.js
-- Vite
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Context API
-- REST APIs
-
-The assignments focus on:
-
-- React Fundamentals
-- State Management
-- Forms Handling
-- API Integration
-- CRUD Operations
-- Routing
-- Context API
-- MERN Stack Development
-- Backend API Creation
+This repository contains all Week 6 assignments and mini projects developed using React.js, Vite, Node.js, Express.js, MongoDB, and Mongoose. The assignments focus on React fundamentals, state management, form handling, API integration, CRUD operations, routing, Context API, and full-stack MERN development.
 
 ---
 
-# 📂 Folder Structure
+## Folder Structure
 
 ```bash
 Week_6_Assignments/
@@ -39,360 +19,126 @@ Week_6_Assignments/
 ├── react-app-1/
 ├── react-app-2/
 └── react-routing-demo/
-```
+````
 
 ---
 
-# 🛠 Technologies Used
+## Technologies Used
 
-| Technology | Purpose |
-|------------|----------|
-| React.js | Frontend UI |
-| Vite | Fast React Build Tool |
-| Node.js | Backend Runtime |
-| Express.js | REST API Framework |
-| MongoDB | Database |
-| Mongoose | ODM |
-| Context API | Global State Management |
-| CSS | Styling |
-| CORS | Cross-Origin Requests |
-
----
-
-# 📚 Topics Covered
+| Technology  | Purpose                           |
+| ----------- | --------------------------------- |
+| React.js    | Frontend User Interface           |
+| Vite        | Build Tool and Development Server |
+| Node.js     | JavaScript Runtime                |
+| Express.js  | Backend API Framework             |
+| MongoDB     | NoSQL Database                    |
+| Mongoose    | ODM for MongoDB                   |
+| Context API | Global State Management           |
+| CSS         | Styling                           |
+| CORS        | Cross-Origin Resource Sharing     |
 
 ---
 
-# ⚛ React.js Fundamentals
+## Topics Covered
 
-- JSX
-- Functional Components
-- Props
-- State Management
-- Event Handling
-- Conditional Rendering
-- List Rendering
-- Forms Handling
-- Hooks
-- Context API
-
----
-
-# 🌐 MERN Stack Concepts
-
-- MongoDB Database
-- Express.js APIs
-- React Frontend
-- Node.js Backend
-- CRUD Operations
-- API Integration
+* React Fundamentals
+* JSX and Components
+* Props and State
+* Event Handling
+* Forms and Validation
+* Hooks (`useState`, `useEffect`, `useRef`)
+* Context API
+* React Router
+* API Integration
+* REST APIs
+* CRUD Operations
+* MERN Stack Development
+* MongoDB and Mongoose
+* Backend Development with Express.js
+* Error Handling
 
 ---
 
-# 🔄 REST API Concepts
+## React App 1
 
-- GET Requests
-- POST Requests
-- PUT Requests
-- DELETE Requests
-- API Routing
-- Error Handling
+This project demonstrates core React concepts and form handling.
 
----
+### Components Included
 
-# 🧠 State Management Concepts
+| Component          | Purpose                  |
+| ------------------ | ------------------------ |
+| `EditCounter1.jsx` | Counter update example   |
+| `EditCounter2.jsx` | Counter logic demo       |
+| `EditCounter3.jsx` | Advanced counter example |
+| `EditCounter4.jsx` | Counter modification     |
+| `FormDemo.jsx`     | Form handling            |
+| `FormDemoSir.jsx`  | Form validation example  |
+| `Product.jsx`      | Product component        |
+| `RootLayout.jsx`   | Main layout component    |
 
-- useState
-- useEffect
-- Context API
-- Props Drilling
-- Component Re-rendering
+### Concepts Demonstrated
 
----
-
-# ⚛ React App - 1
-
-This project demonstrates React component development and form handling.
-
----
-
-# 📂 Components Included
-
-| Component | Purpose |
-|------------|----------|
-| `EditCounter1.jsx` | Counter Update Demo |
-| `EditCounter2.jsx` | Counter Logic Demo |
-| `EditCounter3.jsx` | Advanced Counter Example |
-| `EditCounter4.jsx` | Counter Modification |
-| `FormDemo.jsx` | React Form Handling |
-| `FormDemoSir.jsx` | Form Validation Example |
-| `Product.jsx` | Product Component |
-| `RootLayout.jsx` | Main Layout Component |
+* State updates using `useState`
+* Event handling
+* Dynamic rendering
+* Controlled components
+* Form validation
+* Props usage
 
 ---
 
-# 🔢 Counter Components Explanation
+## React App 2
 
-The counter components demonstrate:
+This project focuses on API integration and reusable components.
 
-- State updates
-- Increment & decrement
-- Event handling
-- Dynamic rendering
+### Components Included
 
-## Example
+| Component          | Purpose           |
+| ------------------ | ----------------- |
+| `APIDemo.jsx`      | Fetch API example |
+| `Counter.jsx`      | Counter component |
+| `Footer.jsx`       | Footer layout     |
+| `FormDemo.jsx`     | Form handling     |
+| `Navbar.jsx`       | Navigation bar    |
+| `TestRefTypes.jsx` | Ref handling      |
+| `User.jsx`         | User component    |
+| `UsersList.jsx`    | Dynamic user list |
 
-```jsx
-const [count, setCount] = useState(0);
-```
+### Concepts Demonstrated
 
-### Explanation
-
-| Code | Meaning |
-|------|----------|
-| useState(0) | Creates state variable |
-| count | Current state value |
-| setCount | Updates state |
-
----
-
-## Counter Update Example
-
-```jsx
-<button onClick={() => setCount(count + 1)}>
-  Increment
-</button>
-```
-
-### Explanation
-
-- `onClick` handles button events
-- `setCount()` updates state
-- React automatically re-renders UI
+* Fetch API
+* `useEffect`
+* `useRef`
+* Dynamic rendering
+* Reusable layouts
 
 ---
 
-# 📝 Form Demo Components
+## React Routing Demo
 
-These components demonstrate:
+This project demonstrates routing using React Router.
 
-- Controlled Components
-- Form Validation
-- Input Handling
-- Event Management
+### Concepts Used
 
----
+* `BrowserRouter`
+* `Routes`
+* `Route`
+* `Link`
+* `Outlet`
 
-## Example
+### Features
 
-```jsx
-const [name, setName] = useState("");
-```
-
-### Explanation
-
-- Stores input field value
-- Updates dynamically while typing
+* Navigation between pages
+* Nested routes
+* Layout routes
 
 ---
 
-## Input Handling Example
+## MERN Mini App
 
-```jsx
-<input
-  type="text"
-  value={name}
-  onChange={(e) => setName(e.target.value)}
-/>
-```
+A complete MERN Stack mini project with frontend and backend integration.
 
-### Explanation
-
-| Property | Purpose |
-|----------|----------|
-| value | Current input value |
-| onChange | Detects typing |
-| e.target.value | Gets typed text |
-
----
-
-# 📦 Product Component
-
-Displays product information dynamically.
-
-## Concepts Used
-
-- Props
-- JSX
-- Dynamic Rendering
-
-## Example
-
-```jsx
-<Product
-  name="Laptop"
-  price={50000}
-/>
-```
-
-### Explanation
-
-- Props pass data between components
-- Components become reusable
-
----
-
-# ⚛ React App - 2
-
-This project focuses on:
-
-- API Integration
-- User Components
-- Reusable Layouts
-- Ref Types
-- Navigation Components
-
----
-
-# 📂 Components Included
-
-| Component | Purpose |
-|------------|----------|
-| `APIDemo.jsx` | API Fetch Example |
-| `Counter.jsx` | Counter Component |
-| `Footer.jsx` | Footer Layout |
-| `FormDemo.jsx` | Form Handling |
-| `Navbar.jsx` | Navigation Bar |
-| `TestRefTypes.jsx` | Ref Handling |
-| `User.jsx` | User Component |
-| `UsersList.jsx` | Dynamic User List |
-
----
-
-# 🌐 API Demo Component
-
-Demonstrates fetching data from APIs.
-
-## Concepts Used
-
-- Fetch API
-- useEffect Hook
-- Async Operations
-
----
-
-## Example
-
-```jsx
-useEffect(() => {
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(data => console.log(data));
-}, []);
-```
-
-### Explanation
-
-| Hook | Purpose |
-|------|----------|
-| useEffect | Runs side effects |
-| fetch() | Makes API request |
-| .then() | Handles response |
-
----
-
-# 👤 Users List Component
-
-Displays users dynamically.
-
-## Example
-
-```jsx
-users.map((user) => (
-  <User key={user.id} user={user} />
-))
-```
-
-### Explanation
-
-- `.map()` loops through array
-- Dynamically renders components
-- `key` improves React performance
-
----
-
-# 🧭 Navbar Component
-
-Demonstrates reusable navigation UI.
-
-## Features
-
-- Navigation links
-- Responsive layout
-- Reusable structure
-
----
-
-# 🪝 Ref Types Component
-
-Demonstrates React Refs.
-
-## Concepts Used
-
-- useRef Hook
-- DOM access
-- Focus handling
-
----
-
-# 🌐 React Routing Demo
-
-This project demonstrates:
-
-- React Router
-- Navigation
-- Nested Routes
-- Layout Routes
-
-## Concepts Used
-
-```jsx
-BrowserRouter
-Routes
-Route
-Link
-Outlet
-```
-
----
-
-# 🔀 Example Routing
-
-```jsx
-<Route path="/" element={<Home />} />
-```
-
-### Explanation
-
-- Defines application routes
-- Maps URL to components
-
----
-
-# 🚀 MERN Mini App
-
-A complete MERN Stack mini project.
-
-The project contains:
-
-- Backend APIs
-- MongoDB Database
-- React Frontend
-- CRUD Operations
-
----
-
-# 📂 MERN Project Structure
+### Project Structure
 
 ```bash
 mern-mini-app/
@@ -409,17 +155,15 @@ mern-mini-app/
     └── App.jsx
 ```
 
----
+### Main Functionality
 
-# 🗄 Employee Management System
-
-The MERN mini app mainly focuses on employee management.
+The application is an Employee Management System that performs full CRUD operations.
 
 ---
 
-# 📘 Employee Schema Explanation
+## Employee Schema
 
-```js
+```javascript
 const employeeSchema = new Schema({
   name: String,
   email: String,
@@ -429,234 +173,75 @@ const employeeSchema = new Schema({
 });
 ```
 
----
+### Schema Features
 
-# 🧠 Schema Field Explanation
-
-| Field | Purpose |
-|------|----------|
-| name | Employee Name |
-| email | Employee Email |
-| mobile | Contact Number |
-| designation | Job Role |
-| companyName | Company Name |
+* Automatic timestamps
+* Validation support
+* Strict schema enforcement
 
 ---
 
-# ⚡ Mongoose Features Used
+## Backend Features
 
-```js
-timestamps:true,
-versionKey:false,
-strict:"throw"
-```
-
-### Explanation
-
-| Option | Purpose |
-|--------|----------|
-| timestamps | Adds createdAt & updatedAt |
-| versionKey:false | Removes __v field |
-| strict:"throw" | Throws error for invalid fields |
+* REST API development using Express.js
+* MongoDB integration with Mongoose
+* CRUD operations
+* Centralized error handling
+* Environment variables with `.env`
+* CORS configuration
 
 ---
 
-# 🌐 Employee API Explanation
+## CRUD Operations
+
+| Operation | HTTP Method |
+| --------- | ----------- |
+| Create    | POST        |
+| Read      | GET         |
+| Update    | PUT         |
+| Delete    | DELETE      |
 
 ---
 
-# 1️⃣ Create Employee API
-
-```js
-employeeApp.post("/create-emp", async(req,res)=>{})
-```
-
-## Purpose
-
-Creates a new employee document.
-
-## Flow
-
-1. Get employee data from frontend
-2. Create document
-3. Save to MongoDB
-4. Return response
-
----
-
-# 2️⃣ Read Employees API
-
-```js
-employeeApp.get("/list", async(req,res)=>{})
-```
-
-## Purpose
-
-Fetches all employees from database.
-
-## Features
-
-- Returns employee list
-- Handles empty database case
-
----
-
-# 3️⃣ Update Employee API
-
-```js
-employeeApp.put("/employees/:_id", async(req,res)=>{})
-```
-
-## Purpose
-
-Updates employee details.
-
-## Features
-
-- Dynamic route parameters
-- Validation support
-- Returns updated employee
-
----
-
-# 4️⃣ Delete Employee API
-
-```js
-employeeApp.delete("/employees/:_id", async(req,res)=>{})
-```
-
-## Purpose
-
-Deletes employee from database.
-
----
-
-# 🌐 Backend Server Explanation
-
-The backend server is built using:
-
-- Express.js
-- MongoDB
-- Mongoose
-- CORS
-
----
-
-# 🔌 Database Connection
-
-```js
-await connect(process.env.DB_URL);
-```
-
-### Explanation
-
-- Connects MongoDB database
-- Uses environment variables
-
----
-
-# 🌍 CORS Configuration
-
-```js
-app.use(cors({
-  origin:["http://localhost:5173"],
-}));
-```
-
-### Explanation
-
-Allows frontend React app to access backend APIs.
-
----
-
-# ⚠ Error Handling Middleware
-
-The backend includes centralized error handling.
-
----
-
-## Validation Error Handling
-
-```js
-if (err.name === "ValidationError")
-```
-
-### Purpose
-
-Handles schema validation errors.
-
----
-
-## Duplicate Key Error
-
-```js
-if (errCode === 11000)
-```
-
-### Purpose
-
-Handles duplicate email errors.
-
----
-
-# 🔄 Frontend & Backend Integration
+## API Integration
 
 Frontend communicates with backend APIs using:
 
-- fetch()
-- Axios
-- REST APIs
+* `fetch()`
+* Axios
+* REST endpoints
 
 ---
 
-# 📦 CRUD Operations Covered
+## Context API
 
-| Operation | Method |
-|-----------|---------|
-| Create | POST |
-| Read | GET |
-| Update | PUT |
-| Delete | DELETE |
+The project demonstrates global state management using Context API to:
 
----
-
-# 🧠 Context API
-
-The project demonstrates Context API for:
-
-- Global state management
-- Sharing data across components
-- Avoiding props drilling
+* Share data between components
+* Avoid props drilling
+* Manage application-wide state
 
 ---
 
-# 📱 Responsive UI Concepts
+## Responsive UI Concepts
 
 Projects include:
 
-- Responsive layouts
-- Reusable components
-- Modern UI structure
+* Responsive layouts
+* Reusable components
+* Modern UI structure
 
 ---
 
-# 🚀 How to Run React Projects
+## How to Run React Projects
 
----
-
-# Step 1
-
-Install dependencies
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
-# Step 2
-
-Start development server
+### 2. Start the Development Server
 
 ```bash
 npm run dev
@@ -664,44 +249,28 @@ npm run dev
 
 ---
 
-# 🌐 How to Run Backend
+## How to Run the Backend
 
----
-
-# Step 1
-
-Move to backend folder
+### 1. Navigate to the Backend Folder
 
 ```bash
 cd backend
 ```
 
----
-
-# Step 2
-
-Install dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
-# Step 3
-
-Create `.env` file
+### 3. Create a `.env` File
 
 ```env
 PORT=6987
 DB_URL=your_mongodb_connection_string
 ```
 
----
-
-# Step 4
-
-Run server
+### 4. Start the Server
 
 ```bash
 node server.js
@@ -709,62 +278,62 @@ node server.js
 
 ---
 
-# 📚 Learning Outcomes
+## Learning Outcomes
 
-By completing these assignments, the following skills were improved:
+By completing these assignments, the following skills were strengthened:
 
-✅ React Fundamentals  
-✅ Hooks Usage  
-✅ Forms Handling  
-✅ API Integration  
-✅ CRUD Operations  
-✅ MERN Stack Development  
-✅ MongoDB Integration  
-✅ Express.js Backend  
-✅ REST APIs  
-✅ State Management  
-✅ Error Handling  
-✅ React Routing  
-✅ Context API
-
----
-
-# 📈 Future Improvements
-
-Possible future enhancements:
-
-- Authentication System
-- JWT Security
-- Protected Routes
-- Redux Toolkit
-- File Uploads
-- Pagination
-- Search & Filters
-- Admin Dashboard
-- Deployment
+* React Fundamentals
+* Hooks Usage
+* Form Handling
+* API Integration
+* CRUD Operations
+* MERN Stack Development
+* MongoDB Integration
+* Express.js Backend Development
+* REST APIs
+* State Management
+* Error Handling
+* React Routing
+* Context API
 
 ---
 
-# 👨‍💻 Author
+## Future Improvements
 
-## Sushanth Bandari
+Possible enhancements include:
 
-Computer Science Engineering Student  
+* Authentication System
+* JWT Security
+* Protected Routes
+* Redux Toolkit
+* File Uploads
+* Pagination
+* Search and Filters
+* Admin Dashboard
+* Deployment
+
+---
+
+## Author
+
+**Sushanth Bandari**
+Computer Science Engineering Student
 Anurag University
 
 ---
 
-# ⭐ Summary
+## Summary
 
-Week-6 assignments focused on:
+Week 6 assignments focused on:
 
-✅ React.js Development  
-✅ MERN Stack Basics  
-✅ Backend APIs  
-✅ MongoDB CRUD  
-✅ API Integration  
-✅ React Routing  
-✅ Context API  
-✅ Modern Frontend Development
+* React.js Development
+* MERN Stack Fundamentals
+* Backend API Creation
+* MongoDB CRUD Operations
+* API Integration
+* React Routing
+* Context API
+* Modern Frontend Development
 
----
+```
+```
