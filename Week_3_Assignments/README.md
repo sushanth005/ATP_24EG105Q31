@@ -1,12 +1,11 @@
+````markdown
+# Backend 2 - Express.js REST API with Authentication
 
-# Backend_2 - Express.js REST API with Authentication
-
-This project is a backend application built using **Node.js**, **Express.js**, **MongoDB**, and **Mongoose**.  
-It demonstrates REST API development, JWT authentication, middleware usage, password hashing, and CRUD operations for Users and Products.
+This project is a backend application built using Node.js, Express.js, MongoDB, and Mongoose. It demonstrates REST API development, JWT authentication, middleware usage, password hashing, and CRUD operations for users and products.
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```bash
 Backend_2/
@@ -34,51 +33,48 @@ Backend_2/
 
 ---
 
-# 🚀 Features
+## Features
 
 * REST API implementation
-* User Authentication using JWT
-* Password Hashing using bcrypt
-* Protected Routes
-* CRUD Operations
-* MongoDB Database Integration
-* Middleware Usage
+* User authentication using JWT
+* Password hashing using bcrypt
+* Protected routes
+* CRUD operations
+* MongoDB database integration
+* Middleware usage
 * Express Router
-* Cookie-based Authentication
+* Cookie-based authentication
 
 ---
 
-# 🛠 Technologies Used
+## Technologies Used
 
+* JavaScript (ES6)
 * Node.js
 * Express.js
 * MongoDB
 * Mongoose
-* JWT (jsonwebtoken)
+* jsonwebtoken
 * bcrypt
-* Cookie-parser
+* cookie-parser
 
 ---
 
-# 📦 Installation
+## Installation
 
-## Step 1: Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
 ```
 
----
-
-## Step 2: Move into Project Folder
+### 2. Navigate to the Project Folder
 
 ```bash
 cd Backend_2
 ```
 
----
-
-## Step 3: Install Dependencies
+### 3. Install Dependencies
 
 ```bash
 npm install
@@ -86,13 +82,13 @@ npm install
 
 ---
 
-# ▶️ Run the Server
+## Running the Server
 
 ```bash
 node server.js
 ```
 
-Server runs on:
+The server will start at:
 
 ```bash
 http://localhost:3000
@@ -100,18 +96,18 @@ http://localhost:3000
 
 ---
 
-# 📘 User Model
+## User Model
 
-The user schema contains:
+The user schema includes the following fields:
 
-| Field    | Type   | Validation            |
-| -------- | ------ | --------------------- |
-| username | String | Required, Min 4 chars |
-| password | String | Required              |
-| email    | String | Required, Unique      |
-| age      | Number | Optional              |
+| Field      | Type   | Validation                     |
+| ---------- | ------ | ------------------------------ |
+| `username` | String | Required, minimum 4 characters |
+| `password` | String | Required                       |
+| `email`    | String | Required, unique               |
+| `age`      | Number | Optional                       |
 
-### Features
+### User Model Features
 
 * Password hashing using bcrypt
 * Email uniqueness validation
@@ -119,60 +115,61 @@ The user schema contains:
 
 ---
 
-# 📘 Product Model
+## Product Model
 
-The product schema contains:
+The product schema includes the following fields:
 
-| Field       | Type   | Validation           |
-| ----------- | ------ | -------------------- |
-| productId   | Number | Required, Unique     |
-| productName | String | Min 4, Max 12        |
-| price       | Number | Min 10000, Max 50000 |
-| brand       | String | Required             |
+| Field         | Type   | Validation                          |
+| ------------- | ------ | ----------------------------------- |
+| `productId`   | Number | Required, unique                    |
+| `productName` | String | Minimum 4 and maximum 12 characters |
+| `price`       | Number | Minimum 10000 and maximum 50000     |
+| `brand`       | String | Required                            |
 
-### Features
+### Product Model Features
 
-* Product validation
+* Schema validation
+* Unique product IDs
 * Automatic timestamps
-* Mongoose schema validation
 
 ---
 
-# 🔐 Authentication System
+## Authentication System
 
 Authentication is implemented using:
 
-* JWT Tokens
-* HTTP-only Cookies
-* Route-level Middleware
+* JWT tokens
+* HTTP-only cookies
+* Route-level middleware
 
-### Login Process
+### Login Workflow
 
-1. Verify email
-2. Compare password using bcrypt
-3. Generate JWT token
-4. Store token in cookies
-5. Access protected routes
+1. Verify the user's email
+2. Compare the entered password with the hashed password
+3. Generate a JWT token
+4. Store the token in an HTTP-only cookie
+5. Access protected routes using the token
 
 ---
 
-# 🧩 Middleware
+## Middleware
 
-## verifyToken Middleware
+### verifyToken Middleware
 
-The middleware checks:
+This middleware performs the following checks:
 
-* Token availability
-* Token validity
-* Session expiration
+* Verifies whether a token is present
+* Validates the token
+* Checks for token expiration
 
 ### Protected Route Example
 
-```js
-userApp.get("/users", verifyToken, async(req, res)=>{
-    let userslist = await UserModel.find()
+```javascript
+userApp.get("/users", verifyToken, async (req, res) => {
+    let userslist = await UserModel.find();
+
     res.status(200).json({
-        message:"users",
+        message: "users",
         payload: userslist
     });
 });
@@ -180,118 +177,106 @@ userApp.get("/users", verifyToken, async(req, res)=>{
 
 ---
 
-# 📡 API Endpoints
+## API Endpoints
 
-# 👤 User APIs
+### User APIs
 
-| Method | Endpoint      | Description               |
-| ------ | ------------- | ------------------------- |
-| POST   | `/users`      | Create new user           |
-| POST   | `/users/auth` | User login                |
-| GET    | `/users`      | Get all users (Protected) |
-| GET    | `/users/:id`  | Get user by ID            |
-| PUT    | `/users/:id`  | Update user               |
-| DELETE | `/users/:id`  | Delete user               |
+| Method   | Endpoint      | Description               |
+| -------- | ------------- | ------------------------- |
+| `POST`   | `/users`      | Create a new user         |
+| `POST`   | `/users/auth` | User login                |
+| `GET`    | `/users`      | Get all users (Protected) |
+| `GET`    | `/users/:id`  | Get user by ID            |
+| `PUT`    | `/users/:id`  | Update user               |
+| `DELETE` | `/users/:id`  | Delete user               |
 
----
+### Product APIs
 
-# 🛒 Product APIs
-
-| Method | Endpoint        | Description       |
-| ------ | --------------- | ----------------- |
-| POST   | `/products`     | Create product    |
-| GET    | `/products`     | Get all products  |
-| GET    | `/products/:id` | Get product by ID |
-| PUT    | `/products/:id` | Update product    |
-| DELETE | `/products/:id` | Delete product    |
+| Method   | Endpoint        | Description          |
+| -------- | --------------- | -------------------- |
+| `POST`   | `/products`     | Create a new product |
+| `GET`    | `/products`     | Get all products     |
+| `GET`    | `/products/:id` | Get product by ID    |
+| `PUT`    | `/products/:id` | Update product       |
+| `DELETE` | `/products/:id` | Delete product       |
 
 ---
 
-# 🔑 Password Hashing
+## Password Hashing Example
 
-Passwords are hashed using bcrypt before storing into database.
-
-### Example
-
-```js
+```javascript
 const hashedPassword = await hash(newUser.password, 12);
 newUser.password = hashedPassword;
 ```
 
 ---
 
-# 🎟 JWT Token Generation
+## JWT Token Generation Example
 
-JWT tokens are generated during login.
-
-### Example
-
-```js
+```javascript
 const signedToken = sign(
-    {email: user.email},
+    { email: user.email },
     "abcdef",
-    {expiresIn:"1h"}
+    { expiresIn: "1h" }
 );
 ```
 
 ---
 
-# 🍪 Cookie Storage
+## Cookie Storage Example
 
-JWT tokens are stored as HTTP-only cookies.
-
-### Example
-
-```js
+```javascript
 res.cookie("token", signedToken, {
-    httpOnly:true,
-    sameSite:"lax",
-    secure:false
+    httpOnly: true,
+    sameSite: "lax",
+    secure: false
 });
 ```
 
 ---
 
-# ⚡ HTTP Status Codes Used
+## HTTP Status Codes Used
 
-| Status Code | Meaning      |
-| ----------- | ------------ |
-| 200         | Success      |
-| 201         | Created      |
-| 400         | Bad Request  |
-| 401         | Unauthorized |
-| 404         | Not Found    |
-| 500         | Server Error |
+| Status Code | Meaning               |
+| ----------- | --------------------- |
+| `200`       | Success               |
+| `201`       | Created               |
+| `400`       | Bad Request           |
+| `401`       | Unauthorized          |
+| `404`       | Not Found             |
+| `500`       | Internal Server Error |
 
 ---
 
-# 🧪 Testing APIs
+## Testing the APIs
 
-You can test APIs using:
+You can test the API endpoints using:
 
 * Postman
 * Thunder Client
-* req.http file
+* `req.http`
 
 ---
 
-# 📚 Concepts Covered
+## Concepts Covered
 
 * REST APIs
-* Authentication
-* Authorization
+* Authentication and Authorization
 * Middleware
-* MongoDB CRUD
+* MongoDB CRUD Operations
 * Password Encryption
 * JWT Authentication
 * Express Routing
 * Mongoose Validation
-* Cookies Handling
+* Cookie Handling
 
 ---
 
-# 👨‍💻 Author
+## Author
 
 **Sushanth Bandari**
-Computer Science Engineering Student
+Computer Science Engineering 
 Anurag University
+
+```
+```
