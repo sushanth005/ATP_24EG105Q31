@@ -24,83 +24,164 @@ This repository contains beginner-level JavaScript programs that cover fundament
 This program finds the largest number among three given numbers using conditional statements.
 
 #### Example
+```javascript
 console.log(greatest(10, 20, 30));
-Output
+````
+
+#### Output
+
+```bash
 30
-2. Greatest of Two Numbers
+```
+
+---
+
+### 2. Greatest of Two Numbers
 
 This program compares two numbers and returns the greater one.
 
-Example
+#### Example
+
+```javascript
 console.log(greatest(10, 20));
-Output
+```
+
+#### Output
+
+```bash
 20
+```
 
 If both numbers are equal, the program returns:
 
+```bash
 Both numbers are equal
-3. Smallest Element in an Array
+```
+
+---
+
+### 3. Smallest Element in an Array
 
 This program finds the smallest value in an array.
 
-Example
+#### Example
+
+```javascript
 console.log(findSmallest([90, 78, 30, 45, 80]));
-Output
+```
+
+#### Output
+
+```bash
 30
-4. Search Element in an Array
+```
+
+---
+
+### 4. Search Element in an Array
 
 This program searches for an element in an array and returns its index position.
 
-Example
+#### Example
+
+```javascript
 console.log(searchelement([10, 20, 30, 40, 55, 93, 43], 93));
-Output
+```
+
+#### Output
+
+```bash
 5
+```
 
 If the element is not found, the program returns:
 
+```bash
 Not Found!
-5. Employee Object Operations
+```
+
+---
+
+### 5. Employee Object Operations
 
 This program performs various operations on an array of employee objects.
 
-Operations Included
-Adding a new employee
-Removing the employee named Kiran
-Updating Sneha's marks
-Concepts Used
-Arrays of objects
-splice()
-find()
-findIndex()
-6. Sum of Array Elements
+#### Operations Included
+
+* Adding a new employee
+* Removing the employee named `Kiran`
+* Updating Sneha's marks
+
+#### Concepts Used
+
+* Arrays of objects
+* `splice()`
+* `find()`
+* `findIndex()`
+
+---
+
+### 6. Sum of Array Elements
 
 This program calculates the total sum of all elements in an array.
 
-Example
-console.log(arraySum([90, 78, 65, 98]));
-Output
-331
-Concepts Covered
-Functions
-Conditional Statements
-Loops
-Arrays
-Objects
-Array Methods
-Searching Techniques
-Array Manipulation
-How to Run the Programs
-Install Node.js on your system.
-Open the terminal in the project folder.
-Run any JavaScript file using the following command:
-node filename.js
-Example
-node Ass_Greatest_of_three.js
-Technologies Used
-JavaScript (ES6)
-Node.js
-Author
+#### Example
 
-Sushanth Bandari
+```javascript
+console.log(arraySum([90, 78, 65, 98]));
+```
+
+#### Output
+
+```bash
+331
+```
+
+---
+
+## Concepts Covered
+
+* Functions
+* Conditional Statements
+* Loops
+* Arrays
+* Objects
+* Array Methods
+* Searching Techniques
+* Array Manipulation
+
+---
+
+## How to Run the Programs
+
+1. Install Node.js on your system.
+2. Open the terminal in the project folder.
+3. Run any JavaScript file using the following command:
+
+```bash
+node filename.js
+```
+
+#### Example
+
+```bash
+node Ass_Greatest_of_three.js
+```
+
+---
+
+## Technologies Used
+
+* JavaScript (ES6)
+* Node.js
+
+---
+
+## Author
+
+**Sushanth Bandari**
 Computer Science Engineering Student
 Anurag University
+
+```
+```
